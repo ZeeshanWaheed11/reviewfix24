@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewFix24 – Bewertungsmanagement für Unternehmen</title>
+    <meta name="description" content="Wir helfen Unternehmen, unfaire Google-Bewertungen professionell entfernen zu lassen. Erfolgsbasiert.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --color-bg:#06060f;
+            --color-surface:#0a0a14;
+            --color-surface-2:#0f0f1a;
+            --color-border:rgba(255,255,255,0.05);
+            --color-text:#e8e8f0;
+            --color-text-secondary:#9898ad;
+            --color-text-tertiary:#5c5c75;
+            --color-accent:#a78bfa;
+            --color-accent-dim:rgba(167,139,250,0.1);
+            --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+            --font-serif:'Instrument Serif',Georgia,serif;
+            --ease-out:cubic-bezier(0.16,1,0.3,1)
+        }
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-sans);background-color:var(--color-bg);color:var(--color-text);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        .glow{position:fixed;width:800px;height:800px;border-radius:50%;pointer-events:none;z-index:0}
+        .glow-1{top:-400px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(167,139,250,0.08) 0%,transparent 70%)}
+        .glow-2{bottom:-400px;right:-200px;background:radial-gradient(circle,rgba(236,72,153,0.05) 0%,transparent 70%)}
+        .container{max-width:1140px;margin:0 auto;padding:0 24px}
+        header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(6,6,15,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border)}
+        .nav-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:var(--font-serif);font-size:1.375rem;color:var(--color-text);text-decoration:none;letter-spacing:-0.02em}
+        .logo span{color:var(--color-accent)}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+        .nav-links a{color:var(--color-text-secondary);text-decoration:none;font-size:0.875rem;transition:color 0.2s}
+        .nav-links a:hover{color:var(--color-text)}
+        .nav-cta{padding:10px 20px;background:var(--color-accent);color:var(--color-bg);border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:all 0.2s}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(167,139,250,0.3)}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-toggle span{display:block;width:20px;height:1.5px;background:var(--color-text);margin:5px 0;transition:0.3s}
+        .hero{min-height:100vh;display:flex;align-items:center;padding:140px 24px 80px;position:relative}
+        .hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .hero-content{position:relative;z-index:1}
+        .hero-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;color:var(--color-accent);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em}
+        .hero-label::before{content:'';width:6px;height:6px;background:var(--color-accent);border-radius:50%;animation:pulse 2s ease infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+        .hero-title{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:400;line-height:1.15;letter-spacing:-0.03em;margin-bottom:24px}
+        .hero-title i{font-style:italic;color:var(--color-accent)}
+        .hero-description{font-size:1.0625rem;color:var(--color-text-secondary);line-height:1.75;margin-bottom:40px;max-width:480px;font-weight:300}
+        .hero-actions{display:flex;align-items:center;gap:24px}
+        .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.9375rem;font-weight:500;text-decoration:none;transition:all 0.25s var(--ease-out);cursor:pointer;border:none}
+        .btn-primary{padding:14px 28px;background:var(--color-accent);color:var(--color-bg);border-radius:10px}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(167,139,250,0.35)}
+        .btn-primary svg{width:18px;height:18px;transition:transform 0.2s}
+        .btn-primary:hover svg{transform:translateX(3px)}
+        .btn-ghost{color:var(--color-text-secondary);padding:0;background:none}
+        .btn-ghost:hover{color:var(--color-text)}
+        .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+        .hero-visual dotlottie-player{width:100%;max-width:480px;filter:drop-shadow(0 0 60px rgba(167,139,250,0.15))}
+        .metrics{padding:64px 24px;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);background:var(--color-surface)}
+        .metrics-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+        .metric{text-align:center}
+        .metric-value{font-family:var(--font-serif);font-size:2.25rem;font-weight:400;letter-spacing:-0.03em;margin-bottom:4px}
+        .metric-label{font-size:0.8125rem;color:var(--color-text-tertiary)}
+        section{padding:120px 24px;position:relative}
+        .section-label{font-size:0.75rem;font-weight:500;color:var(--color-accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+        .section-title{font-family:var(--font-serif);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;margin-bottom:16px}
+        .section-description{font-size:1rem;color:var(--color-text-secondary);font-weight:300;max-width:520px}
+        .section-header{text-align:center;margin-bottom:64px}
+        .section-header .section-description{margin:0 auto}
+        .process{background:var(--color-surface)}
+        .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
+        .process-card{padding:40px 32px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:16px;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden}
+        .process-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--color-accent),transparent);opacity:0;transition:opacity 0.3s}
+        .process-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,0.15)}
+        .process-card:hover::before{opacity:1}
+        .process-number{font-family:var(--font-serif);font-size:4rem;line-height:1;color:var(--color-accent);opacity:0.15;margin-bottom:24px}
+        .process-card h3{font-size:1.125rem;font-weight:500;margin-bottom:12px}
+        .process-card p{font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.7;font-weight:300}
+        .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+        .feature-card{display:flex;align-items:flex-start;gap:20px;padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:14px;transition:all 0.25s}
+        .feature-card:hover{border-color:rgba(167,139,250,0.12);background:var(--color-surface-2)}
+        .feature-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--color-accent-dim);border-radius:10px;flex-shrink:0}
+        .feature-icon svg{width:20px;height:20px;color:var(--color-accent)}
+        .feature-content h3{font-size:1rem;font-weight:500;margin-bottom:6px}
+        .feature-content p{font-size:0.875rem;color:var(--color-text-secondary);font-weight:300;line-height:1.6}
+        .testimonials{background:var(--color-surface)}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
+        .testimonial-card{padding:32px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:14px;transition:all 0.25s}
+        .testimonial-card:hover{border-color:rgba(255,255,255,0.08)}
+        .testimonial-rating{color:#fbbf24;font-size:0.875rem;letter-spacing:3px;margin-bottom:16px}
+        .testimonial-text{font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.75;margin-bottom:24px;font-weight:300;font-style:italic}
+        .testimonial-author{display:flex;align-items:center;gap:12px}
+        .author-avatar{width:40px;height:40px;background:linear-gradient(135deg,var(--color-accent),#c084fc);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8125rem;font-weight:500;color:var(--color-bg)}
+        .author-name{font-size:0.9375rem;font-weight:500}
+        .author-role{font-size:0.75rem;color:var(--color-text-tertiary)}
+        .faq-list{max-width:680px;margin:0 auto}
+        .faq-item{border-bottom:1px solid var(--color-border)}
+        .faq-question{width:100%;padding:24px 0;background:none;border:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}
+        .faq-question span{font-family:var(--font-sans);font-size:1rem;font-weight:400;color:var(--color-text)}
+        .faq-question svg{width:20px;height:20px;color:var(--color-text-tertiary);transition:transform 0.3s var(--ease-out);flex-shrink:0;margin-left:16px}
+        .faq-item.active .faq-question svg{transform:rotate(180deg)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease-out)}
+        .faq-item.active .faq-answer{max-height:200px}
+        .faq-answer p{padding-bottom:24px;font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.75;font-weight:300}
+        .contact{background:var(--color-surface)}
+        .contact-container{max-width:480px;margin:0 auto}
+        .contact-form{padding:40px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:20px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .form-group{margin-bottom:20px}
+        .form-group label{display:block;font-size:0.8125rem;color:var(--color-text-secondary);margin-bottom:8px}
+        .form-group input,.form-group textarea{width:100%;padding:14px 16px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:10px;color:var(--color-text);font-family:var(--font-sans);font-size:0.9375rem;font-weight:300;transition:all 0.2s}
+        .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--color-accent);background:var(--color-surface)}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:var(--color-text-tertiary)}
+        .form-group textarea{min-height:100px;resize:vertical}
+        .form-submit{width:100%;padding:16px;background:var(--color-accent);color:var(--color-bg);border:none;border-radius:10px;font-family:var(--font-sans);font-size:0.9375rem;font-weight:500;cursor:pointer;transition:all 0.25s}
+        .form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(167,139,250,0.3)}
+        footer{padding:64px 24px 32px;border-top:1px solid var(--color-border)}
+        .footer-inner{max-width:1140px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+        .footer-brand p{margin-top:16px;font-size:0.875rem;color:var(--color-text-tertiary);line-height:1.7;font-weight:300;max-width:280px}
+        .footer-col h4{font-size:0.75rem;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:12px}
+        .footer-col a{font-size:0.875rem;color:var(--color-text-secondary);text-decoration:none;font-weight:300;transition:color 0.2s}
+        .footer-col a:hover{color:var(--color-text)}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--color-border)}
+        .footer-bottom p{font-size:0.8125rem;color:var(--color-text-tertiary);font-weight:300}
+        .footer-legal{display:flex;gap:32px}
+        .footer-legal a{font-size:0.8125rem;color:var(--color-text-tertiary);text-decoration:none;font-weight:300;transition:color 0.2s}
+        .footer-legal a:hover{color:var(--color-text)}
+        .fade-up{opacity:0;transform:translateY(24px);transition:all 0.7s var(--ease-out)}
+        .fade-up.visible{opacity:1;transform:translateY(0)}
+        .delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}
+        .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;padding:24px}
+        .modal.active{display:flex}
+        .modal-content{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:16px;padding:40px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;position:relative}
+        .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--color-text-tertiary);cursor:pointer}
+        .modal-close:hover{color:var(--color-text)}
+        .modal-content h2{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;margin-bottom:24px}
+        .modal-content h3{font-size:0.9375rem;font-weight:500;color:var(--color-accent);margin-top:24px;margin-bottom:8px}
+        .modal-content p{font-size:0.875rem;color:var(--color-text-secondary);line-height:1.7;font-weight:300}
+        @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;text-align:center;gap:48px}.hero-content{max-width:560px;margin:0 auto}.hero-description{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-visual{order:-1}.hero-visual dotlottie-player{max-width:320px}.metrics-inner{grid-template-columns:repeat(2,1fr);gap:40px 24px}.process-grid{grid-template-columns:1fr;max-width:480px}.features-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr;max-width:480px}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}}
+        @media(max-width:640px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);flex-direction:column;padding:24px;gap:20px}.nav-links.active{display:flex}.nav-cta{display:none}.mobile-toggle{display:block}.mobile-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}.mobile-toggle.active span:nth-child(2){opacity:0}.mobile-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}.hero{padding:120px 24px 60px}.hero-actions{flex-direction:column;gap:16px}.btn-primary{width:100%;justify-content:center}section{padding:80px 24px}.metrics-inner{grid-template-columns:1fr;gap:32px}.form-row{grid-template-columns:1fr}.contact-form{padding:28px}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;gap:16px;text-align:center}.footer-legal{flex-wrap:wrap;justify-content:center;gap:20px}}
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <header>
+        <div class="nav-inner">
+            <a href="#" class="logo">review<span>fix24</span></a>
+            <ul class="nav-links"><li><a href="#prozess">Prozess</a></li><li><a href="#vorteile">Vorteile</a></li><li><a href="#faq">FAQ</a></li></ul>
+            <a href="#kontakt" class="nav-cta">Kostenlose Analyse</a>
+            <button class="mobile-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-label fade-up">Erfolgsbasiertes Bewertungsmanagement</div>
+                <h1 class="hero-title fade-up delay-1">Wir <i>fixen</i> Ihre Bewertungen</h1>
+                <p class="hero-description fade-up delay-2">Unfaire Google-Bewertungen können echten Schaden anrichten. Wir helfen Unternehmen, diese professionell entfernen zu lassen – Sie zahlen nur bei Erfolg.</p>
+                <div class="hero-actions fade-up delay-3">
+                    <a href="#kontakt" class="btn btn-primary">Analyse anfordern<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                    <a href="#prozess" class="btn btn-ghost">So funktioniert's</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-up delay-2">
+                <dotlottie-player src="https://lottie.host/9c7f85b7-0d80-492a-9b60-5a7e58a7e3de/Q08v0gQGqe.json" background="transparent" speed="0.8" loop autoplay></dotlottie-player>
+            </div>
+        </div>
+    </section>
+    <div class="metrics">
+        <div class="metrics-inner">
+            <div class="metric fade-up"><div class="metric-value">3.200+</div><div class="metric-label">Entfernte Bewertungen</div></div>
+            <div class="metric fade-up delay-1"><div class="metric-value">97%</div><div class="metric-label">Erfolgsquote</div></div>
+            <div class="metric fade-up delay-2"><div class="metric-value">650+</div><div class="metric-label">Betreute Unternehmen</div></div>
+            <div class="metric fade-up delay-3"><div class="metric-value">24-72h</div><div class="metric-label">Ø Bearbeitungszeit</div></div>
+        </div>
+    </div>
+    <section class="process" id="prozess">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label fade-up">Der Ablauf</div>
+                <h2 class="section-title fade-up delay-1">Einfach und transparent</h2>
+                <p class="section-description fade-up delay-2">Drei Schritte, kein Risiko – so verbessern Sie Ihre Online-Reputation.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card fade-up"><div class="process-number">01</div><h3>Analyse anfordern</h3><p>Senden Sie uns Ihre Google-Profil-URL. Wir prüfen kostenlos, welche Bewertungen entfernbar sind.</p></div>
+                <div class="process-card fade-up delay-1"><div class="process-number">02</div><h3>Wir übernehmen</h3><p>Unser Team setzt rechtskonforme Verfahren ein, um die identifizierten Bewertungen zu melden.</p></div>
+                <div class="process-card fade-up delay-2"><div class="process-number">03</div><h3>Erfolg = Zahlung</h3><p>Sie zahlen erst, wenn die Bewertung nachweislich gelöscht wurde. Kein Erfolg, keine Kosten.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="vorteile">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label fade-up">Ihre Vorteile</div>
+                <h2 class="section-title fade-up delay-1">Warum Unternehmen uns vertrauen</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-up"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div class="feature-content"><h3>Erfolgsbasierte Abrechnung</h3><p>Keine Vorauszahlung. Sie zahlen nur für gelöschte Bewertungen.</p></div></div>
+                <div class="feature-card fade-up delay-1"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div class="feature-content"><h3>Schnelle Bearbeitung</h3><p>Die meisten Bewertungen werden innerhalb von 24–72 Stunden entfernt.</p></div></div>
+                <div class="feature-card fade-up delay-2"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div><div class="feature-content"><h3>Absolute Diskretion</h3><p>Ihre Daten werden streng vertraulich behandelt.</p></div></div>
+                <div class="feature-card fade-up delay-3"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div class="feature-content"><h3>Rechtssichere Methoden</h3><p>Wir arbeiten ausschließlich mit Google-konformen Verfahren.</p></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label fade-up">Erfahrungen</div>
+                <h2 class="section-title fade-up delay-1">Was unsere Kunden berichten</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Drei negative Bewertungen in 48 Stunden entfernt. Unser Rating stieg von 3,6 auf 4,3 Sterne."</p><div class="testimonial-author"><div class="author-avatar">AW</div><div><div class="author-name">Andreas W.</div><div class="author-role">Handwerksbetrieb, Frankfurt</div></div></div></div>
+                <div class="testimonial-card fade-up delay-1"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Professionelle Abwicklung, transparente Kommunikation. Absolut empfehlenswert."</p><div class="testimonial-author"><div class="author-avatar">JL</div><div><div class="author-name">Julia L.</div><div class="author-role">Praxis, Köln</div></div></div></div>
+                <div class="testimonial-card fade-up delay-2"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Endlich ein Anbieter, der hält was er verspricht. Kein Risiko für mich als Kunde."</p><div class="testimonial-author"><div class="author-avatar">PS</div><div><div class="author-name">Peter S.</div><div class="author-role">Gastronom, Stuttgart</div></div></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label fade-up">Häufige Fragen</div>
+                <h2 class="section-title fade-up delay-1">Gut zu wissen</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item fade-up"><button class="faq-question"><span>Wie funktioniert die erfolgsbasierte Abrechnung?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Sie zahlen erst, wenn die Bewertung gelöscht wurde. Die Analyse ist kostenlos und unverbindlich.</p></div></div>
+                <div class="faq-item fade-up delay-1"><button class="faq-question"><span>Welche Bewertungen können entfernt werden?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Bewertungen, die gegen Googles Richtlinien verstoßen – Falschaussagen, Beleidigungen, Spam oder Bewertungen von Nicht-Kunden.</p></div></div>
+                <div class="faq-item fade-up delay-2"><button class="faq-question"><span>Wie lange dauert die Entfernung?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Meist 24–72 Stunden. Bei komplexeren Fällen bis zu zwei Wochen.</p></div></div>
+                <div class="faq-item fade-up delay-3"><button class="faq-question"><span>Ist das Verfahren legal?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Ja. Wir nutzen ausschließlich die offiziellen Meldewege von Google.</p></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label fade-up">Kontakt</div>
+                <h2 class="section-title fade-up delay-1">Kostenlose Analyse anfordern</h2>
+                <p class="section-description fade-up delay-2">Wir melden uns innerhalb von 24 Stunden mit einer Einschätzung.</p>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form fade-up delay-3" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-row"><div class="form-group"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Firmenname"></div><div class="form-group"><label>Ansprechpartner *</label><input type="text" name="name" required placeholder="Ihr Name"></div></div>
+                    <div class="form-row"><div class="form-group"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.de"></div><div class="form-group"><label>Telefon</label><input type="tel" name="phone" placeholder="+49 123 456789"></div></div>
+                    <div class="form-group"><label>Google Maps URL</label><input type="url" name="url" placeholder="Link zu Ihrem Google-Profil"></div>
+                    <div class="form-group"><label>Nachricht</label><textarea name="message" placeholder="Kurze Beschreibung..."></textarea></div>
+                    <button type="submit" class="form-submit">Analyse anfordern</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="#" class="logo">review<span>fix24</span></a><p>Professionelles Bewertungsmanagement für Unternehmen. Diskret, erfolgreich, risikofrei.</p></div>
+                <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#prozess">Prozess</a></li><li><a href="#vorteile">Vorteile</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+                <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="#" onclick="openModal('impressum')">Impressum</a></li><li><a href="#" onclick="openModal('datenschutz')">Datenschutz</a></li></ul></div>
+                <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="tel:+971585373009">+971 585 373 009</a></li><li><a href="/cdn-cgi/l/email-protection#caa3a4aca58ab8afbca3afbdaca3b2f8fee4aeaf"><span class="__cf_email__" data-cfemail="2e474048416e5c4b58474b594847561c1a004a4b">[email&#160;protected]</span></a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 ReviewFix24. Alle Rechte vorbehalten.</p><div class="footer-legal"><a href="#" onclick="openModal('impressum')">Impressum</a><a href="#" onclick="openModal('datenschutz')">Datenschutz</a></div></div>
+        </div>
+    </footer>
+    <div class="modal" id="impressum"><div class="modal-content"><button class="modal-close" onclick="closeModal('impressum')"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button><h2>Impressum</h2><h3>Angaben gemäß § 5 TMG</h3><p>B2B Media L.L.C-FZ<br>Meydan Grandstand, 6th floor<br>Meydan Road, Nad Al Sheba<br>Dubai, UAE</p><h3>Kontakt</h3><p>Telefon: +971 – 585 373 009<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef86818980af9d8a99868a98898697dddbc18b8a">[email&#160;protected]</a></p></div></div>
+    <div class="modal" id="datenschutz"><div class="modal-content"><button class="modal-close" onclick="closeModal('datenschutz')"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button><h2>Datenschutz</h2><h3>1. Datenschutz</h3><p>Wir behandeln Ihre Daten vertraulich entsprechend gesetzlicher Vorschriften.</p><h3>2. Kontakt</h3><p>Bei Fragen: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3babdb5bc93a1b6a5bab6a4b5baabe1e7fdb7b6">[email&#160;protected]</a></p></div></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const mobileToggle=document.querySelector('.mobile-toggle'),navLinks=document.querySelector('.nav-links');mobileToggle.addEventListener('click',()=>{mobileToggle.classList.toggle('active');navLinks.classList.toggle('active')});document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{mobileToggle.classList.remove('active');navLinks.classList.remove('active')}));
+        const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-up').forEach(e=>observer.observe(e));
+        document.querySelectorAll('.faq-item').forEach(i=>{i.querySelector('.faq-question').addEventListener('click',()=>{const o=i.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));o||i.classList.add('active')})});
+        function openModal(i){event.preventDefault();document.getElementById(i).classList.add('active');document.body.style.overflow='hidden'}function closeModal(i){document.getElementById(i).classList.remove('active');document.body.style.overflow=''}document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{e.target===m&&(m.classList.remove('active'),docum
