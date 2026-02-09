@@ -2,10 +2,25 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect rx=%2215%22 width=%22100%22 height=%22100%22 fill=%22%232563eb%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22>✓</text></svg>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReviewFix24 – Bewertungen. Korrigiert. Garantiert.</title>
-    <meta name="description" content="Negative Google-Bewertungen schnell und rechtssicher entfernen. Erfolgsbasiert, transparent und effizient – ReviewFix24 bringt Ihr Rating auf Kurs.">
+    <title>Google-Bewertungen fixen | Negative Rezensionen entfernen | ReviewFix24</title>
+    <meta name="description" content="Falsche Google-Bewertungen schnell und rechtssicher entfernen. Keine Vorabkosten – Zahlung nur bei Erfolg. 98% Erfolgsquote. Jetzt gratis Bewertungs-Check starten.">
     <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Google Bewertungen fixen, Bewertungen entfernen lassen, Fake Rezensionen löschen, Google Rating verbessern, negative Bewertungen entfernen, Bewertungsmanagement">
+    <link rel="canonical" href="https://reviewfix24.de/">
+    <meta property="og:title" content="Google-Bewertungen fixen | Negative Rezensionen entfernen | ReviewFix24">
+    <meta property="og:description" content="Falsche Google-Bewertungen schnell und rechtssicher entfernen. Keine Vorabkosten – Zahlung nur bei Erfolg. 98% Erfolgsquote. Jetzt gratis Bewertungs-Check starten.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reviewfix24.de/">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="ReviewFix24">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Google-Bewertungen fixen | Negative Rezensionen entfernen | ReviewFix24">
+    <meta name="twitter:description" content="Falsche Google-Bewertungen schnell und rechtssicher entfernen. Keine Vorabkosten – Zahlung nur bei Erfolg. 98% Erfolgsquote. Jetzt gratis Bewertungs-Check starten.">
+    <meta name="geo.region" content="DE">
+    <meta name="geo.placename" content="Deutschland">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +60,7 @@
         .logo-text span{color:var(--cyan)}
 
         .nav-center{display:flex;gap:2rem;align-items:center}
-        .nav-center a{color:var(--text-body);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .3s;letter-spacing:.3px}
+        .nav-center a{color:var(--text-body);text-decoration:none;font-size:.85rem;padding:.5rem .2rem;font-weight:600;transition:color .3s;letter-spacing:.3px}
         .nav-center a:hover{color:var(--white)}
         .nav-right{display:flex;align-items:center;gap:1rem}
 
@@ -214,7 +229,65 @@
         @media(max-width:1024px){.nav-center{display:none}.nav-cta{display:none}.hamburger{display:flex}nav{padding:1rem 1.5rem}nav.scrolled{padding:.7rem 1.5rem}}
         @media(max-width:900px){section{padding:4rem 1.5rem}.hero{padding:7rem 1.5rem 3rem}.hero-container{grid-template-columns:1fr}.hero-visual{order:-1}.features-grid{grid-template-columns:1fr}.process-row{grid-template-columns:1fr 1fr}.process-row::before{display:none}.testimonials-grid{grid-template-columns:1fr}.c-row{grid-template-columns:1fr}.hero-badges{justify-content:center}.contact-cta{padding:2.5rem 1.5rem;border-radius:16px}.contact-meta{flex-direction:column;gap:.5rem;align-items:center}footer{flex-direction:column;gap:1rem;text-align:center}.lottie-strip{padding:2.5rem 1.5rem}.lottie-inner{flex-direction:column;text-align:center;gap:2rem}.lottie-metrics{justify-content:center}}
         @media(max-width:480px){.hero-badges{flex-direction:column;gap:1rem}.lottie-metrics{flex-direction:column;gap:1rem;align-items:center}.process-row{grid-template-columns:1fr}}
+    
+        @media(prefers-reduced-motion:reduce){
+            *,.reveal,.hero h1,.hero-text,.hero-ctas,.hero-eyebrow,.hero-visual,.star-animation .star,.float-card{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}
+        }
+    
+        .scroll-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:#2563eb;color:var(--white);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;z-index:900;box-shadow:0 4px 15px rgba(0,0,0,.2);font-size:1.1rem}
+        .scroll-top.visible{opacity:1;pointer-events:all}
+        .scroll-top:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+    
+        .c-submit.loading{opacity:.7;pointer-events:none;position:relative}
+        .c-submit.loading::after{content:'';width:16px;height:16px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite;display:inline-block;margin-left:8px;vertical-align:middle}
+        @keyframes spin{to{transform:rotate(360deg)}}
+    
+        @media(max-width:480px){.h-badge-label,.lm-label,.section-eyebrow,.t-role,.ht-role,.faq-arrow{font-size:.75rem}.float-card,.fc-stars{font-size:.7rem}}
+    
+        section[id]{scroll-margin-top:80px}
+    
+        .mobile-cta-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:.75rem 1rem;background:inherit;border-top:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+        .mobile-cta-bar a{display:block;width:100%;text-align:center;padding:.85rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s}
+        @media(max-width:900px){.mobile-cta-bar{display:block}footer{padding-bottom:5rem}.scroll-top{bottom:5.5rem}}
+    
+        .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.82rem;line-height:1.5;transition:transform .4s;flex-wrap:wrap}
+        .cookie-bar.hidden{transform:translateY(110%)}
+        .cookie-text{flex:1;min-width:200px}
+        .cookie-text a{color:inherit;text-decoration:underline}
+        .cookie-btn{padding:.55rem 1.4rem;border:none;border-radius:6px;font-weight:700;font-size:.8rem;cursor:pointer;white-space:nowrap;transition:opacity .2s;font-family:inherit}
+        .cookie-btn:hover{opacity:.85}
+        @media(max-width:900px){.cookie-bar{bottom:60px}}
+    
+        @media(max-width:480px){.hero-ctas{flex-direction:column}.hero-ctas .btn-coral,.hero-ctas .btn-emerald,.hero-ctas .btn-cyan,.hero-ctas .btn-gold,.hero-ctas .btn-indigo,.hero-ctas a[class*="btn-"]{width:100%;justify-content:center;text-align:center}.hero-ctas .btn-link{justify-content:center}}
     </style>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "ReviewFix24",
+        "url": "https://reviewfix24.de/",
+        "telephone": "+4930754373980",
+        "email": "info@bewertungsschutz24.com",
+        "description": "Falsche Google-Bewertungen schnell und rechtssicher entfernen. Keine Vorabkosten – Zahlung nur bei Erfolg. 98% Erfolgsquote. Jetzt gratis Bewertungs-Check starten.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Meydan Grandstand, 6th Floor, Meydan Road",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Germany"
+        },
+        "priceRange": "Erfolgsbasiert",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        },
+        "serviceType": ["Reputationsmanagement", "Google Bewertungen entfernen", "Online Reputation Management"]
+    }
+    </script>
 </head>
 <body>
 
@@ -362,28 +435,52 @@
             <div class="contact-cta reveal">
                 <h2 data-i18n="cta.title">Rating kaputt? Wir fixen das.</h2>
                 <p data-i18n="cta.desc">Kostenloser Bewertungs-Check – Antwort in unter 24h.</p>
-                <form class="contact-form" onsubmit="event.preventDefault();alert(currentLang==='de'?'Vielen Dank! Wir melden uns schnellstmöglich.':'Thank you! We\'ll get back to you ASAP.');">
-                    <div class="c-row"><input type="text" data-i18n-ph="ph.name" placeholder="Ihr Name" required><input type="text" data-i18n-ph="ph.company" placeholder="Unternehmen"></div>
-                    <input type="email" data-i18n-ph="ph.email" placeholder="E-Mail-Adresse" required>
-                    <textarea data-i18n-ph="ph.msg" placeholder="Was ist passiert? Kurz beschreiben..."></textarea>
+                <form class="contact-form" action="https://formsubmit.co/service@uranus24.de" method="POST">
+                    <input type="hidden" name="_subject" value="Neue Anfrage über ReviewFix24">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://reviewfix24.de/">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="c-row"><input type="text" data-i18n-ph="ph.name" placeholder="Ihr Name" name="Name" required><input type="text" data-i18n-ph="ph.company" placeholder="Unternehmen" name="Unternehmen"></div>
+                    <input type="email" data-i18n-ph="ph.email" placeholder="E-Mail-Adresse" name="Email" required>
+                    <textarea data-i18n-ph="ph.msg" placeholder="Was ist passiert? Kurz beschreiben..." name="Nachricht"></textarea>
                     <button type="submit" class="c-submit" data-i18n="cta.submit">Gratis Check starten →</button>
                 </form>
-                <div class="contact-meta"><a href="tel:+971585373009">+971 585 373 009</a><a href="mailto:info@reviewfix24.de">info@reviewfix24.de</a></div>
+                <div class="contact-meta"><a href="tel:+4930754373980">+49 30 754 373 980</a><a href="mailto:info@bewertungsschutz24.com">info@bewertungsschutz24.com</a></div>
             </div>
         </div>
     </section>
 
     <footer>
         <p>© 2026 ReviewFix24. <span data-i18n="ft.rights">Alle Rechte vorbehalten.</span></p>
+        <p style="color:var(--text-muted);font-size:.7rem;margin-top:.3rem" data-i18n="ft.built">Webseite erstellt von <a href="https://imisofts.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;transition:color .3s">imisofts.com</a></p>
         <div class="footer-links"><a href="#" onclick="event.preventDefault();openModal('impressum')">Impressum</a><a href="#" onclick="event.preventDefault();openModal('datenschutz')" data-i18n="ft.privacy">Datenschutz</a></div>
     </footer>
 
-    <div class="modal" id="impressum"><div class="modal-box"><button class="modal-close" onclick="closeModal('impressum')">×</button><h2>Impressum</h2><h3 data-i18n="imp.h1">Angaben gemäß § 5 TMG</h3><p>B2B Media L.L.C-FZ<br>Meydan Grandstand, 6th Floor<br>Meydan Road, Nad Al Sheba<br>Dubai, UAE</p><h3 data-i18n="imp.h2">Kontakt</h3><p>Tel: +971 – 585 373 009<br>E-Mail: info@reviewfix24.de</p></div></div>
-    <div class="modal" id="datenschutz"><div class="modal-box"><button class="modal-close" onclick="closeModal('datenschutz')">×</button><h2 data-i18n="priv.title">Datenschutzerklärung</h2><h3 data-i18n="priv.h1">1. Verantwortlicher</h3><p>B2B Media L.L.C-FZ, Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE</p><h3 data-i18n="priv.h2">2. Datenverarbeitung</h3><p data-i18n="priv.p2">Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.</p><h3 data-i18n="priv.h3">3. Ihre Rechte</h3><p data-i18n="priv.p3">Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@reviewfix24.de.</p></div></div>
+    <div class="modal" id="impressum"><div class="modal-box"><button class="modal-close" onclick="closeModal('impressum')">×</button><h2>Impressum</h2><h3 data-i18n="imp.h1">Angaben gemäß § 5 TMG</h3><p>B2B Media L.L.C-FZ<br>Meydan Grandstand, 6th Floor<br>Meydan Road, Nad Al Sheba<br>Dubai, UAE</p><h3 data-i18n="imp.h2">Kontakt</h3><p>Tel: +49 – 30 754 373 980<br>E-Mail: info@bewertungsschutz24.com</p></div></div>
+    <div class="modal" id="datenschutz"><div class="modal-box"><button class="modal-close" onclick="closeModal('datenschutz')">×</button><h2 data-i18n="priv.title">Datenschutzerklärung</h2><h3 data-i18n="priv.h1">1. Verantwortlicher</h3><p>B2B Media L.L.C-FZ, Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE</p><h3 data-i18n="priv.h2">2. Datenverarbeitung</h3><p data-i18n="priv.p2">Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.</p><h3 data-i18n="priv.h3">3. Ihre Rechte</h3><p data-i18n="priv.p3">Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@bewertungsschutz24.com.</p></div></div>
+
+
+
+    
+    <div class="mobile-cta-bar" id="mobileCta" style="background:rgba(12,18,34,0.95)">
+        <a href="#kontakt" style="background:var(--cyan);color:var(--white)" data-i18n="mobile.cta">Jetzt fixen lassen</a>
+    </div>
+    
+
+
+    
+    <div class="cookie-bar hidden" id="cookieBar" style="background:rgba(250,250,250,0.97);color:#1a1a1a">
+        <span class="cookie-text" data-i18n="cookie.text">Diese Website verwendet keine Tracking-Cookies. Durch die Nutzung stimmen Sie unserer <a href="#" onclick="event.preventDefault();openModal('datenschutz')">Datenschutzerklärung</a> zu.</span>
+        <button class="cookie-btn" data-i18n="cookie.btn" onclick="document.getElementById('cookieBar').classList.add('hidden');localStorage.setItem('cookie_ok','1')" style="background:var(--cyan);color:#fff">Verstanden</button>
+    </div>
+
+
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
 
     <script>
-    const T={de:{'nav.features':'Leistungen','nav.process':'Prozess','nav.testimonials':'Erfahrungen','nav.cta':'Jetzt fixen','hero.eyebrow':'Bewertungen fixen','hero.title':'Falsche Bewertungen kosten Kunden. Wir fixen das.','hero.text':'ReviewFix24 entfernt ungerechtfertigte Google-Bewertungen – schnell, rechtssicher, transparent. Null Vorabkosten. Zahlung nur bei Erfolg.','hero.cta':'Gratis Bewertungs-Check →','hero.link':'Wie es funktioniert →','hero.quote':'Drei Fake-Bewertungen in nur 9 Tagen entfernt. Unser Google-Rating sprang von 3,6 auf 4,5 Sterne – die Terminanfragen haben sich verdreifacht.','hero.role':'Inhaber, Physiotherapie Leipzig','hero.stat1':'Erfolgsquote','hero.stat2':'Gefixt','hero.stat3':'Ø Dauer','lottie.title':'Bewertungsprobleme? Erledigt.','lottie.text':'Über 2.400 Bewertungen erfolgreich entfernt. Unsere Kunden gewinnen Vertrauen zurück – messbar und nachhaltig.','lottie.s1':'Ø Rating danach','lottie.s2':'Mehr Anfragen','lottie.s3':'Ø Bearbeitungszeit','feat.eye':'Was wir bieten','feat.title':'Klare Lösung für unfaire Bewertungen','feat.desc':'Transparent, effizient und ohne Risiko.','f1.t':'Null Risiko','f1.p':'Keine Vorabzahlung. Honorar erst bei erfolgreicher Löschung.','f2.t':'100% Legal','f2.p':'Nur rechtskonforme Methoden auf Basis aktueller Gesetzgebung.','f3.t':'Volle Transparenz','f3.p':'Sie wissen jederzeit, wo Ihr Fall steht. Klare Updates.','f4.t':'Schnelle Umsetzung','f4.p':'Im Schnitt 14 Tage bis zur finalen Entfernung.','f5.t':'Direkter Draht','f5.p':'Ihr persönlicher Ansprechpartner – erreichbar, wenn nötig.','f6.t':'Dauerhafter Effekt','f6.p':'Entfernte Bewertungen bleiben weg. Ihr Rating bleibt stabil.','proc.eye':'So läuft es ab','proc.title':'In vier Schritten zum besseren Rating','s1.t':'Scan','s1.p':'Kostenlose Prüfung aller Bewertungen auf Angriffspunkte.','s2.t':'Plan','s2.p':'Individuelle Strategie für maximale Erfolgsaussicht.','s3.t':'Fix','s3.p':'Professionelle Durchsetzung über rechtliche Kanäle.','s4.t':'Done','s4.p':'Bewertung weg – Zahlung erst bei Erfolg.','test.eye':'Kundenstimmen','test.title':'Ergebnisse, die überzeugen','t1.q':'„Zwei Fake-Bewertungen waren nach 8 Tagen weg. Unser Rating stieg direkt von 3,8 auf 4,4 – die Wirkung war sofort messbar."','t1.r':'Inhaberin, Friseursalon Hannover','t2.q':'„Unkompliziert, schnell und wirklich effektiv. ReviewFix24 hat geliefert, wo andere nur geredet haben."','t2.r':'Geschäftsführer, Handwerksbetrieb Nürnberg','t3.q':'„Endlich jemand, der Bewertungen pragmatisch angeht. Klare Kommunikation, klares Ergebnis."','t3.r':'Inhaberin, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Die wichtigsten Fragen auf einen Blick','q1.q':'Ist das Entfernen von Google-Bewertungen legal?','q1.a':'Ja. Wir arbeiten ausschließlich mit legalen Methoden. Bewertungen, die gegen Recht oder Google-Richtlinien verstoßen, können rechtmäßig entfernt werden.','q2.q':'Was kostet mich das?','q2.a':'Null Vorabkosten. Sie zahlen nur bei Erfolg – wird die Bewertung nicht entfernt, zahlen Sie nichts.','q3.q':'Wie schnell geht das?','q3.a':'Im Schnitt 7 bis 21 Tage – je nach Komplexität des Falls.','q4.q':'Welche Bewertungen lassen sich entfernen?','q4.a':'Fake-Bewertungen, unwahre Behauptungen, Bewertungen von Nicht-Kunden und Richtlinienverstöße.','q5.q':'Bekommt der Bewertende das mit?','q5.a':'Nein. Der gesamte Prozess läuft diskret – ohne jeglichen Kontakt zum Verfasser.','cta.title':'Rating kaputt? Wir fixen das.','cta.desc':'Kostenloser Bewertungs-Check – Antwort in unter 24h.','cta.submit':'Gratis Check starten →','ft.rights':'Alle Rechte vorbehalten.','ft.privacy':'Datenschutz','imp.h1':'Angaben gemäß § 5 TMG','imp.h2':'Kontakt','priv.title':'Datenschutzerklärung','priv.h1':'1. Verantwortlicher','priv.h2':'2. Datenverarbeitung','priv.p2':'Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.','priv.h3':'3. Ihre Rechte','priv.p3':'Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@reviewfix24.de.','ph.name':'Ihr Name','ph.company':'Unternehmen','ph.email':'E-Mail-Adresse','ph.msg':'Was ist passiert? Kurz beschreiben...'},
-    en:{'nav.features':'Services','nav.process':'Process','nav.testimonials':'Reviews','nav.cta':'Fix Now','hero.eyebrow':'Fix Your Reviews','hero.title':'Fake reviews cost customers. We fix that.','hero.text':'ReviewFix24 removes unjustified Google reviews – fast, legal, transparent. Zero upfront costs. Payment only on success.','hero.cta':'Free Review Check →','hero.link':'How it works →','hero.quote':'Three fake reviews removed in just 9 days. Our Google rating jumped from 3.6 to 4.5 stars – appointment requests tripled.','hero.role':'Owner, Physiotherapy Leipzig','hero.stat1':'Success Rate','hero.stat2':'Fixed','hero.stat3':'Ø Duration','lottie.title':'Review problems? Sorted.','lottie.text':'Over 2,400 reviews successfully removed. Our clients regain trust – measurably and sustainably.','lottie.s1':'Ø Rating after','lottie.s2':'More inquiries','lottie.s3':'Ø Processing time','feat.eye':'What We Offer','feat.title':'A clear solution for unfair reviews','feat.desc':'Transparent, efficient and risk-free.','f1.t':'Zero Risk','f1.p':'No upfront payment. Fee only upon successful removal.','f2.t':'100% Legal','f2.p':'Exclusively law-compliant methods based on current legislation.','f3.t':'Full Transparency','f3.p':'You always know where your case stands. Clear updates.','f4.t':'Fast Execution','f4.p':'On average 14 days until final removal.','f5.t':'Direct Line','f5.p':'Your personal contact – available when you need them.','f6.t':'Lasting Effect','f6.p':'Removed reviews stay gone. Your rating stays stable.','proc.eye':'How It Works','proc.title':'Four steps to a better rating','s1.t':'Scan','s1.p':'Free examination of all reviews for vulnerabilities.','s2.t':'Plan','s2.p':'Individual strategy for maximum success.','s3.t':'Fix','s3.p':'Professional enforcement through legal channels.','s4.t':'Done','s4.p':'Review gone – payment only on success.','test.eye':'Client Reviews','test.title':'Results that convince','t1.q':'"Two fake reviews were gone after 8 days. Our rating rose from 3.8 to 4.4 – the impact was immediately measurable."','t1.r':'Owner, Hair Salon Hannover','t2.q':'"Uncomplicated, fast and truly effective. ReviewFix24 delivered where others only talked."','t2.r':'CEO, Trades Business Nuremberg','t3.q':'"Finally someone who handles reviews pragmatically. Clear communication, clear results."','t3.r':'Owner, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Key questions at a glance','q1.q':'Is removing Google reviews legal?','q1.a':'Yes. We work exclusively with legal methods. Reviews violating law or Google guidelines can be legitimately removed.','q2.q':'What does it cost?','q2.a':'Zero upfront costs. You only pay on success – if the review isn\'t removed, you pay nothing.','q3.q':'How fast is it?','q3.a':'On average 7 to 21 days – depending on case complexity.','q4.q':'Which reviews can be removed?','q4.a':'Fake reviews, false claims, reviews from non-customers and guideline violations.','q5.q':'Does the reviewer find out?','q5.a':'No. The entire process runs discreetly – without any contact to the author.','cta.title':'Rating broken? We fix that.','cta.desc':'Free review check – response within 24h.','cta.submit':'Start Free Check →','ft.rights':'All rights reserved.','ft.privacy':'Privacy Policy','imp.h1':'Information according to § 5 TMG','imp.h2':'Contact','priv.title':'Privacy Policy','priv.h1':'1. Responsible Party','priv.h2':'2. Data Processing','priv.p2':'Personal data is processed only within the legal framework. Contact form data is used exclusively for inquiry processing and is not shared with third parties.','priv.h3':'3. Your Rights','priv.p3':'Information, correction, deletion and restriction of processing. Contact: info@reviewfix24.de.','ph.name':'Your Name','ph.company':'Company','ph.email':'Email Address','ph.msg':'What happened? Briefly describe...'}};
+    const T={de:{'nav.features':'Leistungen','nav.process':'Prozess','nav.testimonials':'Erfahrungen','nav.cta':'Jetzt fixen','hero.eyebrow':'Bewertungen fixen','hero.title':'Falsche Bewertungen kosten Kunden. Wir fixen das.','hero.text':'ReviewFix24 entfernt ungerechtfertigte Google-Bewertungen – schnell, rechtssicher, transparent. Null Vorabkosten. Zahlung nur bei Erfolg.','hero.cta':'Gratis Bewertungs-Check →','hero.link':'Wie es funktioniert →','hero.quote':'Drei Fake-Bewertungen in nur 9 Tagen entfernt. Unser Google-Rating sprang von 3,6 auf 4,5 Sterne – die Terminanfragen haben sich verdreifacht.','hero.role':'Inhaber, Physiotherapie Leipzig','hero.stat1':'Erfolgsquote','hero.stat2':'Gefixt','hero.stat3':'Ø Dauer','lottie.title':'Bewertungsprobleme? Erledigt.','lottie.text':'Über 2.400 Bewertungen erfolgreich entfernt. Unsere Kunden gewinnen Vertrauen zurück – messbar und nachhaltig.','lottie.s1':'Ø Rating danach','lottie.s2':'Mehr Anfragen','lottie.s3':'Ø Bearbeitungszeit','feat.eye':'Was wir bieten','feat.title':'Klare Lösung für unfaire Bewertungen','feat.desc':'Transparent, effizient und ohne Risiko.','f1.t':'Null Risiko','f1.p':'Keine Vorabzahlung. Honorar erst bei erfolgreicher Löschung.','f2.t':'100% Legal','f2.p':'Nur rechtskonforme Methoden auf Basis aktueller Gesetzgebung.','f3.t':'Volle Transparenz','f3.p':'Sie wissen jederzeit, wo Ihr Fall steht. Klare Updates.','f4.t':'Schnelle Umsetzung','f4.p':'Im Schnitt 14 Tage bis zur finalen Entfernung.','f5.t':'Direkter Draht','f5.p':'Ihr persönlicher Ansprechpartner – erreichbar, wenn nötig.','f6.t':'Dauerhafter Effekt','f6.p':'Entfernte Bewertungen bleiben weg. Ihr Rating bleibt stabil.','proc.eye':'So läuft es ab','proc.title':'In vier Schritten zum besseren Rating','s1.t':'Scan','s1.p':'Kostenlose Prüfung aller Bewertungen auf Angriffspunkte.','s2.t':'Plan','s2.p':'Individuelle Strategie für maximale Erfolgsaussicht.','s3.t':'Fix','s3.p':'Professionelle Durchsetzung über rechtliche Kanäle.','s4.t':'Done','s4.p':'Bewertung weg – Zahlung erst bei Erfolg.','test.eye':'Kundenstimmen','test.title':'Ergebnisse, die überzeugen','t1.q':'„Zwei Fake-Bewertungen waren nach 8 Tagen weg. Unser Rating stieg direkt von 3,8 auf 4,4 – die Wirkung war sofort messbar."','t1.r':'Inhaberin, Friseursalon Hannover','t2.q':'„Unkompliziert, schnell und wirklich effektiv. ReviewFix24 hat geliefert, wo andere nur geredet haben."','t2.r':'Geschäftsführer, Handwerksbetrieb Nürnberg','t3.q':'„Endlich jemand, der Bewertungen pragmatisch angeht. Klare Kommunikation, klares Ergebnis."','t3.r':'Inhaberin, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Die wichtigsten Fragen auf einen Blick','q1.q':'Ist das Entfernen von Google-Bewertungen legal?','q1.a':'Ja. Wir arbeiten ausschließlich mit legalen Methoden. Bewertungen, die gegen Recht oder Google-Richtlinien verstoßen, können rechtmäßig entfernt werden.','q2.q':'Was kostet mich das?','q2.a':'Null Vorabkosten. Sie zahlen nur bei Erfolg – wird die Bewertung nicht entfernt, zahlen Sie nichts.','q3.q':'Wie schnell geht das?','q3.a':'Im Schnitt 7 bis 21 Tage – je nach Komplexität des Falls.','q4.q':'Welche Bewertungen lassen sich entfernen?','q4.a':'Fake-Bewertungen, unwahre Behauptungen, Bewertungen von Nicht-Kunden und Richtlinienverstöße.','q5.q':'Bekommt der Bewertende das mit?','q5.a':'Nein. Der gesamte Prozess läuft diskret – ohne jeglichen Kontakt zum Verfasser.','cta.title':'Rating kaputt? Wir fixen das.','cta.desc':'Kostenloser Bewertungs-Check – Antwort in unter 24h.','cta.submit':'Gratis Check starten →','ft.rights':'Alle Rechte vorbehalten.','ft.privacy':'Datenschutz','cookie.text':'Diese Website verwendet keine Tracking-Cookies. Durch die Nutzung stimmen Sie unserer <a href="#" onclick="event.preventDefault();openModal(\'datenschutz\')">Datenschutzerklärung</a> zu.','cookie.btn':'Verstanden','mobile.cta':'Jetzt fixen lassen','ft.built':'Webseite erstellt von <a href="https://imisofts.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;transition:color .3s">imisofts.com</a>','imp.h1':'Angaben gemäß § 5 TMG','imp.h2':'Kontakt','priv.title':'Datenschutzerklärung','priv.h1':'1. Verantwortlicher','priv.h2':'2. Datenverarbeitung','priv.p2':'Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.','priv.h3':'3. Ihre Rechte','priv.p3':'Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@bewertungsschutz24.com.','ph.name':'Ihr Name','ph.company':'Unternehmen','ph.email':'E-Mail-Adresse','ph.msg':'Was ist passiert? Kurz beschreiben...'},
+    en:{'nav.features':'Services','nav.process':'Process','nav.testimonials':'Reviews','nav.cta':'Fix Now','hero.eyebrow':'Fix Your Reviews','hero.title':'Fake reviews cost customers. We fix that.','hero.text':'ReviewFix24 removes unjustified Google reviews – fast, legal, transparent. Zero upfront costs. Payment only on success.','hero.cta':'Free Review Check →','hero.link':'How it works →','hero.quote':'Three fake reviews removed in just 9 days. Our Google rating jumped from 3.6 to 4.5 stars – appointment requests tripled.','hero.role':'Owner, Physiotherapy Leipzig','hero.stat1':'Success Rate','hero.stat2':'Fixed','hero.stat3':'Ø Duration','lottie.title':'Review problems? Sorted.','lottie.text':'Over 2,400 reviews successfully removed. Our clients regain trust – measurably and sustainably.','lottie.s1':'Ø Rating after','lottie.s2':'More inquiries','lottie.s3':'Ø Processing time','feat.eye':'What We Offer','feat.title':'A clear solution for unfair reviews','feat.desc':'Transparent, efficient and risk-free.','f1.t':'Zero Risk','f1.p':'No upfront payment. Fee only upon successful removal.','f2.t':'100% Legal','f2.p':'Exclusively law-compliant methods based on current legislation.','f3.t':'Full Transparency','f3.p':'You always know where your case stands. Clear updates.','f4.t':'Fast Execution','f4.p':'On average 14 days until final removal.','f5.t':'Direct Line','f5.p':'Your personal contact – available when you need them.','f6.t':'Lasting Effect','f6.p':'Removed reviews stay gone. Your rating stays stable.','proc.eye':'How It Works','proc.title':'Four steps to a better rating','s1.t':'Scan','s1.p':'Free examination of all reviews for vulnerabilities.','s2.t':'Plan','s2.p':'Individual strategy for maximum success.','s3.t':'Fix','s3.p':'Professional enforcement through legal channels.','s4.t':'Done','s4.p':'Review gone – payment only on success.','test.eye':'Client Reviews','test.title':'Results that convince','t1.q':'"Two fake reviews were gone after 8 days. Our rating rose from 3.8 to 4.4 – the impact was immediately measurable."','t1.r':'Owner, Hair Salon Hannover','t2.q':'"Uncomplicated, fast and truly effective. ReviewFix24 delivered where others only talked."','t2.r':'CEO, Trades Business Nuremberg','t3.q':'"Finally someone who handles reviews pragmatically. Clear communication, clear results."','t3.r':'Owner, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Key questions at a glance','q1.q':'Is removing Google reviews legal?','q1.a':'Yes. We work exclusively with legal methods. Reviews violating law or Google guidelines can be legitimately removed.','q2.q':'What does it cost?','q2.a':'Zero upfront costs. You only pay on success – if the review isn\'t removed, you pay nothing.','q3.q':'How fast is it?','q3.a':'On average 7 to 21 days – depending on case complexity.','q4.q':'Which reviews can be removed?','q4.a':'Fake reviews, false claims, reviews from non-customers and guideline violations.','q5.q':'Does the reviewer find out?','q5.a':'No. The entire process runs discreetly – without any contact to the author.','cta.title':'Rating broken? We fix that.','cta.desc':'Free review check – response within 24h.','cta.submit':'Start Free Check →','ft.rights':'All rights reserved.','ft.privacy':'Privacy Policy','cookie.text':'Diese Website verwendet keine Tracking-Cookies. Durch die Nutzung stimmen Sie unserer <a href="#" onclick="event.preventDefault();openModal(\'datenschutz\')">Datenschutzerklärung</a> zu.','cookie.btn':'Verstanden','mobile.cta':'Jetzt fixen lassen','cookie.text':'Diese Website verwendet keine Tracking-Cookies. Durch die Nutzung stimmen Sie unserer <a href="#" onclick="event.preventDefault();openModal(\'datenschutz\')">Datenschutzerklärung</a> zu.','cookie.btn':'Verstanden','cookie.text':'This website does not use tracking cookies. By using it, you agree to our <a href="#" onclick="event.preventDefault();openModal(\'datenschutz\')">Privacy Policy</a>.','cookie.btn':'Got it','mobile.cta':'Fix Now','ft.built':'Website built by <a href="https://imisofts.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;transition:color .3s">imisofts.com</a>','imp.h1':'Information according to § 5 TMG','imp.h2':'Contact','priv.title':'Privacy Policy','priv.h1':'1. Responsible Party','priv.h2':'2. Data Processing','priv.p2':'Personal data is processed only within the legal framework. Contact form data is used exclusively for inquiry processing and is not shared with third parties.','priv.h3':'3. Your Rights','priv.p3':'Information, correction, deletion and restriction of processing. Contact: info@bewertungsschutz24.com.','ph.name':'Your Name','ph.company':'Company','ph.email':'Email Address','ph.msg':'What happened? Briefly describe...'}};
 
     let currentLang='de';
     function setLang(l){currentLang=l;document.documentElement.lang=l;['langDE','mLangDE'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='de'));['langEN','mLangEN'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='en'));document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[l][k])el.innerHTML=T[l][k]});document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(T[l][k])el.placeholder=T[l][k]})}
@@ -398,6 +495,19 @@
     document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('active');document.body.style.overflow=''}}));
     document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h!=='#'){e.preventDefault();closeMenu();setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),100)}}));
     setTimeout(()=>{const p=document.getElementById('lottiePlayer');const f=document.getElementById('lottieFallback');if(!p||!p.shadowRoot||!p.shadowRoot.querySelector('canvas,svg')){if(p)p.style.display='none';f.style.display='flex'}},4000);
-    </script>
-</body>
+    
+    const stb=document.getElementById('scrollTop');window.addEventListener('scroll',()=>stb.classList.toggle('visible',window.scrollY>500));
+    
+    document.querySelector('.contact-form')?.addEventListener('submit',function(){const b=this.querySelector('.c-submit');b.classList.add('loading');b.innerHTML=(currentLang==='de'?'Wird gesendet...':'Sending...');});
+    
+    const sections=document.querySelectorAll('section[id]');const navLinks=document.querySelectorAll('.nav-center a');window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-200)c=s.getAttribute('id')});navLinks.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+c?'var(--white)':''});});
+    
+    const mcta=document.getElementById('mobileCta');if(mcta){window.addEventListener('scroll',()=>{const h=document.querySelector('.hero');if(h){mcta.style.transform=window.scrollY>h.offsetHeight?'translateY(0)':'translateY(100%)'}});mcta.style.transform='translateY(100%)';mcta.style.transition='transform .3s';}
+    
+    if(!localStorage.getItem('cookie_ok')){setTimeout(()=>document.getElementById('cookieBar')?.classList.remove('hidden'),1500);}
+    
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();document.querySelectorAll('.modal.active').forEach(m=>{m.classList.remove('active');document.body.style.overflow=''});}});
+    
+    document.querySelectorAll('.contact-form input[required],.contact-form textarea[required]').forEach(el=>{el.addEventListener('invalid',function(){if(this.type==='email'){this.setCustomValidity(currentLang==='de'?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':'Please enter a valid email address.')}else{this.setCustomValidity(currentLang==='de'?'Bitte füllen Sie dieses Feld aus.':'Please fill in this field.')}});el.addEventListener('input',function(){this.setCustomValidity('')});});
+    </script></body>
 </html>
