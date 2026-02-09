@@ -3,275 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReviewFix24 – Bewertungsmanagement für Unternehmen</title>
-    <meta name="description" content="Wir helfen Unternehmen, unfaire Google-Bewertungen professionell entfernen zu lassen. Erfolgsbasiert.">
+    <title>ReviewFix24 – Bewertungen. Korrigiert. Garantiert.</title>
+    <meta name="description" content="Negative Google-Bewertungen schnell und rechtssicher entfernen. Erfolgsbasiert, transparent und effizient – ReviewFix24 bringt Ihr Rating auf Kurs.">
+    <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --color-bg:#06060f;
-            --color-surface:#0a0a14;
-            --color-surface-2:#0f0f1a;
-            --color-border:rgba(255,255,255,0.05);
-            --color-text:#e8e8f0;
-            --color-text-secondary:#9898ad;
-            --color-text-tertiary:#5c5c75;
-            --color-accent:#a78bfa;
-            --color-accent-dim:rgba(167,139,250,0.1);
-            --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-            --font-serif:'Instrument Serif',Georgia,serif;
-            --ease-out:cubic-bezier(0.16,1,0.3,1)
+        :root {
+            --dark: #0c1222;
+            --dark-mid: #111827;
+            --dark-soft: #151d2e;
+            --dark-card: #0f1629;
+            --cyan: #2563eb;
+            --cyan-light: #3b82f6;
+            --cyan-bg: rgba(37,99,235,0.07);
+            --cyan-border: rgba(37,99,235,0.15);
+            --blue: #60a5fa;
+            --bg: #0c1222;
+            --bg-soft: #0e1526;
+            --border: rgba(255,255,255,0.06);
+            --border-light: rgba(255,255,255,0.1);
+            --text: #f1f5f9;
+            --text-body: #94a3b8;
+            --text-muted: #4b5e73;
+            --white: #ffffff;
+            --amber: #fbbf24;
         }
-        html{scroll-behavior:smooth;font-size:16px}
-        body{font-family:var(--font-sans);background-color:var(--color-bg);color:var(--color-text);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-        .glow{position:fixed;width:800px;height:800px;border-radius:50%;pointer-events:none;z-index:0}
-        .glow-1{top:-400px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(167,139,250,0.08) 0%,transparent 70%)}
-        .glow-2{bottom:-400px;right:-200px;background:radial-gradient(circle,rgba(236,72,153,0.05) 0%,transparent 70%)}
-        .container{max-width:1140px;margin:0 auto;padding:0 24px}
-        header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(6,6,15,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border)}
-        .nav-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-        .logo{font-family:var(--font-serif);font-size:1.375rem;color:var(--color-text);text-decoration:none;letter-spacing:-0.02em}
-        .logo span{color:var(--color-accent)}
-        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-        .nav-links a{color:var(--color-text-secondary);text-decoration:none;font-size:0.875rem;transition:color 0.2s}
-        .nav-links a:hover{color:var(--color-text)}
-        .nav-cta{padding:10px 20px;background:var(--color-accent);color:var(--color-bg);border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:all 0.2s}
-        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(167,139,250,0.3)}
-        .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
-        .mobile-toggle span{display:block;width:20px;height:1.5px;background:var(--color-text);margin:5px 0;transition:0.3s}
-        .hero{min-height:100vh;display:flex;align-items:center;padding:140px 24px 80px;position:relative}
-        .hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-        .hero-content{position:relative;z-index:1}
-        .hero-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;color:var(--color-accent);font-size:0.8125rem;font-weight:500;letter-spacing:0.04em}
-        .hero-label::before{content:'';width:6px;height:6px;background:var(--color-accent);border-radius:50%;animation:pulse 2s ease infinite}
-        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-        .hero-title{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:400;line-height:1.15;letter-spacing:-0.03em;margin-bottom:24px}
-        .hero-title i{font-style:italic;color:var(--color-accent)}
-        .hero-description{font-size:1.0625rem;color:var(--color-text-secondary);line-height:1.75;margin-bottom:40px;max-width:480px;font-weight:300}
-        .hero-actions{display:flex;align-items:center;gap:24px}
-        .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:0.9375rem;font-weight:500;text-decoration:none;transition:all 0.25s var(--ease-out);cursor:pointer;border:none}
-        .btn-primary{padding:14px 28px;background:var(--color-accent);color:var(--color-bg);border-radius:10px}
-        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(167,139,250,0.35)}
-        .btn-primary svg{width:18px;height:18px;transition:transform 0.2s}
-        .btn-primary:hover svg{transform:translateX(3px)}
-        .btn-ghost{color:var(--color-text-secondary);padding:0;background:none}
-        .btn-ghost:hover{color:var(--color-text)}
-        .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
-        .hero-visual dotlottie-player{width:100%;max-width:480px;filter:drop-shadow(0 0 60px rgba(167,139,250,0.15))}
-        .metrics{padding:64px 24px;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);background:var(--color-surface)}
-        .metrics-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
-        .metric{text-align:center}
-        .metric-value{font-family:var(--font-serif);font-size:2.25rem;font-weight:400;letter-spacing:-0.03em;margin-bottom:4px}
-        .metric-label{font-size:0.8125rem;color:var(--color-text-tertiary)}
-        section{padding:120px 24px;position:relative}
-        .section-label{font-size:0.75rem;font-weight:500;color:var(--color-accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-        .section-title{font-family:var(--font-serif);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;margin-bottom:16px}
-        .section-description{font-size:1rem;color:var(--color-text-secondary);font-weight:300;max-width:520px}
-        .section-header{text-align:center;margin-bottom:64px}
-        .section-header .section-description{margin:0 auto}
-        .process{background:var(--color-surface)}
-        .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
-        .process-card{padding:40px 32px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:16px;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden}
-        .process-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--color-accent),transparent);opacity:0;transition:opacity 0.3s}
-        .process-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,0.15)}
-        .process-card:hover::before{opacity:1}
-        .process-number{font-family:var(--font-serif);font-size:4rem;line-height:1;color:var(--color-accent);opacity:0.15;margin-bottom:24px}
-        .process-card h3{font-size:1.125rem;font-weight:500;margin-bottom:12px}
-        .process-card p{font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.7;font-weight:300}
-        .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
-        .feature-card{display:flex;align-items:flex-start;gap:20px;padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:14px;transition:all 0.25s}
-        .feature-card:hover{border-color:rgba(167,139,250,0.12);background:var(--color-surface-2)}
-        .feature-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--color-accent-dim);border-radius:10px;flex-shrink:0}
-        .feature-icon svg{width:20px;height:20px;color:var(--color-accent)}
-        .feature-content h3{font-size:1rem;font-weight:500;margin-bottom:6px}
-        .feature-content p{font-size:0.875rem;color:var(--color-text-secondary);font-weight:300;line-height:1.6}
-        .testimonials{background:var(--color-surface)}
-        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1140px;margin:0 auto}
-        .testimonial-card{padding:32px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:14px;transition:all 0.25s}
-        .testimonial-card:hover{border-color:rgba(255,255,255,0.08)}
-        .testimonial-rating{color:#fbbf24;font-size:0.875rem;letter-spacing:3px;margin-bottom:16px}
-        .testimonial-text{font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.75;margin-bottom:24px;font-weight:300;font-style:italic}
-        .testimonial-author{display:flex;align-items:center;gap:12px}
-        .author-avatar{width:40px;height:40px;background:linear-gradient(135deg,var(--color-accent),#c084fc);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8125rem;font-weight:500;color:var(--color-bg)}
-        .author-name{font-size:0.9375rem;font-weight:500}
-        .author-role{font-size:0.75rem;color:var(--color-text-tertiary)}
-        .faq-list{max-width:680px;margin:0 auto}
-        .faq-item{border-bottom:1px solid var(--color-border)}
-        .faq-question{width:100%;padding:24px 0;background:none;border:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}
-        .faq-question span{font-family:var(--font-sans);font-size:1rem;font-weight:400;color:var(--color-text)}
-        .faq-question svg{width:20px;height:20px;color:var(--color-text-tertiary);transition:transform 0.3s var(--ease-out);flex-shrink:0;margin-left:16px}
-        .faq-item.active .faq-question svg{transform:rotate(180deg)}
-        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease-out)}
-        .faq-item.active .faq-answer{max-height:200px}
-        .faq-answer p{padding-bottom:24px;font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.75;font-weight:300}
-        .contact{background:var(--color-surface)}
-        .contact-container{max-width:480px;margin:0 auto}
-        .contact-form{padding:40px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:20px}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-        .form-group{margin-bottom:20px}
-        .form-group label{display:block;font-size:0.8125rem;color:var(--color-text-secondary);margin-bottom:8px}
-        .form-group input,.form-group textarea{width:100%;padding:14px 16px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:10px;color:var(--color-text);font-family:var(--font-sans);font-size:0.9375rem;font-weight:300;transition:all 0.2s}
-        .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--color-accent);background:var(--color-surface)}
-        .form-group input::placeholder,.form-group textarea::placeholder{color:var(--color-text-tertiary)}
-        .form-group textarea{min-height:100px;resize:vertical}
-        .form-submit{width:100%;padding:16px;background:var(--color-accent);color:var(--color-bg);border:none;border-radius:10px;font-family:var(--font-sans);font-size:0.9375rem;font-weight:500;cursor:pointer;transition:all 0.25s}
-        .form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(167,139,250,0.3)}
-        footer{padding:64px 24px 32px;border-top:1px solid var(--color-border)}
-        .footer-inner{max-width:1140px;margin:0 auto}
-        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-        .footer-brand p{margin-top:16px;font-size:0.875rem;color:var(--color-text-tertiary);line-height:1.7;font-weight:300;max-width:280px}
-        .footer-col h4{font-size:0.75rem;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px}
-        .footer-col ul{list-style:none}
-        .footer-col li{margin-bottom:12px}
-        .footer-col a{font-size:0.875rem;color:var(--color-text-secondary);text-decoration:none;font-weight:300;transition:color 0.2s}
-        .footer-col a:hover{color:var(--color-text)}
-        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--color-border)}
-        .footer-bottom p{font-size:0.8125rem;color:var(--color-text-tertiary);font-weight:300}
-        .footer-legal{display:flex;gap:32px}
-        .footer-legal a{font-size:0.8125rem;color:var(--color-text-tertiary);text-decoration:none;font-weight:300;transition:color 0.2s}
-        .footer-legal a:hover{color:var(--color-text)}
-        .fade-up{opacity:0;transform:translateY(24px);transition:all 0.7s var(--ease-out);animation:showFallback 0.7s 0.3s forwards}
-        @keyframes showFallback{to{opacity:1;transform:translateY(0)}}
-        .fade-up.visible{animation:none;opacity:1;transform:translateY(0)}
-        .delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}
-        .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;padding:24px}
-        .modal.active{display:flex}
-        .modal-content{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:16px;padding:40px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;position:relative}
-        .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--color-text-tertiary);cursor:pointer}
-        .modal-close:hover{color:var(--color-text)}
-        .modal-content h2{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;margin-bottom:24px}
-        .modal-content h3{font-size:0.9375rem;font-weight:500;color:var(--color-accent);margin-top:24px;margin-bottom:8px}
-        .modal-content p{font-size:0.875rem;color:var(--color-text-secondary);line-height:1.7;font-weight:300}
-        @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;text-align:center;gap:48px}.hero-content{max-width:560px;margin:0 auto}.hero-description{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-visual{order:-1}.hero-visual dotlottie-player{max-width:320px}.metrics-inner{grid-template-columns:repeat(2,1fr);gap:40px 24px}.process-grid{grid-template-columns:1fr;max-width:480px}.features-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr;max-width:480px}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}}
-        @media(max-width:640px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-bg);border-bottom:1px solid var(--color-border);flex-direction:column;padding:24px;gap:20px}.nav-links.active{display:flex}.nav-cta{display:none}.mobile-toggle{display:block}.mobile-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}.mobile-toggle.active span:nth-child(2){opacity:0}.mobile-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}.hero{padding:120px 24px 60px}.hero-actions{flex-direction:column;gap:16px}.btn-primary{width:100%;justify-content:center}section{padding:80px 24px}.metrics-inner{grid-template-columns:1fr;gap:32px}.form-row{grid-template-columns:1fr}.contact-form{padding:28px}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;gap:16px;text-align:center}.footer-legal{flex-wrap:wrap;justify-content:center;gap:20px}}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+        nav.scrolled{background:rgba(12,18,34,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.7rem 3rem}
+        .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--white)}
+        .logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--cyan),var(--blue));border-radius:10px;display:flex;align-items:center;justify-content:center}
+        .logo-mark svg{width:18px;height:18px;fill:var(--white)}
+        .logo-text{font-size:1.15rem;font-weight:700;letter-spacing:-.5px}
+        .logo-text span{color:var(--cyan)}
+
+        .nav-center{display:flex;gap:2rem;align-items:center}
+        .nav-center a{color:var(--text-body);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .3s;letter-spacing:.3px}
+        .nav-center a:hover{color:var(--white)}
+        .nav-right{display:flex;align-items:center;gap:1rem}
+
+        .lang-toggle{display:flex;background:var(--dark-soft);border:1px solid var(--border-light);border-radius:8px;overflow:hidden}
+        .lang-btn{padding:.35rem .6rem;font-size:.7rem;font-weight:700;letter-spacing:.5px;color:var(--text-muted);background:transparent;border:none;cursor:pointer;transition:all .25s;font-family:'Sora',sans-serif}
+        .lang-btn.active{background:var(--cyan);color:var(--white)}
+
+        .nav-cta{background:var(--cyan);color:var(--white);padding:.55rem 1.3rem;border-radius:8px;font-size:.85rem;text-decoration:none;font-weight:700;transition:all .3s;display:inline-block;letter-spacing:.2px}
+        .nav-cta:hover{background:var(--cyan-light)}
+
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;background:none;border:none;padding:4px}
+        .hamburger em{width:22px;height:2px;background:var(--white);transition:.3s;display:block;font-style:normal}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 5rem;background:var(--bg);position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at 70% 50%,rgba(37,99,235,0.06),transparent 70%);pointer-events:none}
+        .hero-shape{position:absolute;right:-5%;top:8%;width:580px;height:580px;border:1px solid var(--border);border-radius:50%;opacity:.25;pointer-events:none}
+        .hero-shape-2{position:absolute;right:6%;top:22%;width:340px;height:340px;border:1px solid var(--cyan-border);border-radius:50%;opacity:.3;pointer-events:none}
+
+        .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.3;pointer-events:none;mask-image:radial-gradient(ellipse at 60% 50%,black,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 60% 50%,black,transparent 70%)}
+
+        .hero-container{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .hero-content{max-width:560px}
+        .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:1.5rem;opacity:0;animation:slideIn .7s ease .2s forwards}
+        .eyebrow-line{width:30px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:2px}
+        .hero h1{font-size:clamp(2.4rem,4.5vw,3.5rem);font-weight:800;line-height:1.12;margin-bottom:1.5rem;color:var(--white);letter-spacing:-.5px;opacity:0;animation:slideIn .7s ease .4s forwards}
+        .hero-text{font-size:1.02rem;color:var(--text-body);line-height:1.8;margin-bottom:2.5rem;opacity:0;animation:slideIn .7s ease .6s forwards}
+        .hero-ctas{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;opacity:0;animation:slideIn .7s ease .8s forwards}
+
+        .btn-cyan{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--cyan);color:var(--white);text-decoration:none;font-weight:700;font-size:.88rem;border-radius:8px;transition:all .3s;letter-spacing:.2px}
+        .btn-cyan:hover{background:var(--cyan-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,.2)}
+        .btn-link{color:var(--white);text-decoration:none;font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:.3rem;transition:color .3s}
+        .btn-link:hover{color:var(--cyan)}
+
+        .hero-visual{opacity:0;animation:slideIn .7s ease .5s forwards}
+        .hero-testimonial{background:var(--dark-card);border:1px solid var(--border-light);border-radius:16px;padding:2.5rem;box-shadow:0 20px 50px rgba(0,0,0,.3);position:relative}
+        .hero-testimonial::before{content:'\201C';font-size:4rem;color:var(--cyan);opacity:.12;position:absolute;top:1rem;left:1.5rem;line-height:1;font-weight:700}
+        .ht-quote{font-size:1.05rem;color:var(--text);line-height:1.65;margin-bottom:1.5rem;padding-top:.5rem;font-weight:300}
+        .ht-author{display:flex;align-items:center;gap:1rem}
+        .ht-avatar{width:44px;height:44px;background:var(--cyan-bg);border:1px solid var(--cyan-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--cyan);font-size:.85rem}
+        .ht-name{font-weight:700;font-size:.9rem;color:var(--white)}
+        .ht-role{color:var(--text-muted);font-size:.78rem}
+        .ht-stars{color:var(--amber);font-size:1rem;margin-top:.25rem;letter-spacing:2px}
+        .hero-badges{display:flex;gap:2rem;margin-top:1.5rem;padding-top:1.5rem}
+        .h-badge{text-align:center}
+        .h-badge-val{font-size:1.5rem;font-weight:800;color:var(--white)}
+        .h-badge-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+
+        @keyframes slideIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+        /* LOTTIE STRIP */
+        .lottie-strip{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 3rem}
+        .lottie-inner{max-width:1050px;margin:0 auto;display:flex;align-items:center;gap:3.5rem}
+        .lottie-anim{flex-shrink:0;width:220px;height:220px;position:relative}
+        .lottie-anim dotlottie-player{width:100%;height:100%}
+        .lottie-fallback{width:220px;height:220px;display:flex;align-items:center;justify-content:center;position:relative}
+        .star-animation{display:flex;gap:6px;align-items:center}
+        .star-animation .star{font-size:2.2rem;color:var(--cyan);animation:starBounce 1.8s ease infinite;display:inline-block}
+        .star-animation .star:nth-child(1){animation-delay:0s}.star-animation .star:nth-child(2){animation-delay:.15s}.star-animation .star:nth-child(3){animation-delay:.3s}.star-animation .star:nth-child(4){animation-delay:.45s}.star-animation .star:nth-child(5){animation-delay:.6s}
+        @keyframes starBounce{0%,100%{transform:translateY(0) scale(1);opacity:.7}50%{transform:translateY(-8px) scale(1.15);opacity:1}}
+        .review-cards-float{position:absolute;inset:0}
+        .float-card{position:absolute;background:var(--dark-card);border:1px solid var(--border-light);border-radius:10px;padding:.5rem .75rem;box-shadow:0 4px 15px rgba(0,0,0,.2);font-size:.65rem;color:var(--text-body);white-space:nowrap;animation:floatUp 6s ease-in-out infinite}
+        .float-card .fc-stars{color:var(--cyan);font-size:.6rem;letter-spacing:1px;display:block;margin-bottom:1px}
+        .fc1{top:10%;left:-5%;animation-delay:0s}.fc2{top:60%;right:-8%;animation-delay:2s}.fc3{bottom:5%;left:10%;animation-delay:4s}
+        @keyframes floatUp{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-10px);opacity:1}}
+        .lottie-content{flex:1}
+        .lottie-content h3{font-size:1.45rem;font-weight:700;color:var(--white);margin-bottom:.6rem;letter-spacing:-.3px}
+        .lottie-content p{color:var(--text-body);font-size:.95rem;line-height:1.7;margin-bottom:1.5rem}
+        .lottie-metrics{display:flex;gap:2.5rem}
+        .lm-val{font-size:1.7rem;font-weight:800;color:var(--white);line-height:1}
+        .lm-label{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:.25rem}
+
+        /* SECTIONS */
+        section{padding:6rem 3rem}
+        .container{max-width:1100px;margin:0 auto}
+        .section-header{text-align:center;margin-bottom:4rem}
+        .section-eyebrow{font-size:.72rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:.8rem}
+        .section-header h2{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;line-height:1.2;color:var(--white);letter-spacing:-.3px}
+        .section-header p{color:var(--text-body);max-width:500px;margin:1rem auto 0;font-size:1rem}
+
+        /* FEATURES */
+        .features-section{background:var(--bg-soft)}
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .f-card{background:var(--dark-card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all .4s ease}
+        .f-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,.3);border-color:var(--cyan-border)}
+        .f-icon{width:48px;height:48px;background:var(--cyan-bg);border:1px solid var(--cyan-border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--cyan)}
+        .f-card h3{font-size:1.02rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+        .f-card p{color:var(--text-body);font-size:.86rem;line-height:1.7}
+
+        /* PROCESS */
+        .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+        .process-row::before{content:'';position:absolute;top:28px;left:12%;width:76%;height:2px;background:linear-gradient(90deg,var(--border),var(--cyan-border),var(--border));z-index:0}
+        .p-step{text-align:center;position:relative}
+        .p-num{width:56px;height:56px;background:var(--dark-card);border:2px solid var(--border-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:'Source Code Pro',monospace;font-size:1.1rem;font-weight:700;color:var(--cyan);transition:all .3s;position:relative;z-index:2}
+        .p-step:hover .p-num{border-color:var(--cyan);box-shadow:0 0 0 4px var(--cyan-bg)}
+        .p-step h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+        .p-step p{color:var(--text-body);font-size:.85rem;line-height:1.6}
+
+        /* TESTIMONIALS */
+        .testimonials-section{background:var(--bg-soft)}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .t-card{background:var(--dark-card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all .3s}
+        .t-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+        .t-stars{color:var(--amber);font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+        .t-quote{color:var(--text-body);font-size:.88rem;line-height:1.7;font-style:italic;margin-bottom:1.5rem}
+        .t-name{font-weight:700;font-size:.88rem;color:var(--white)}
+        .t-role{color:var(--text-muted);font-size:.78rem}
+
+        /* FAQ */
+        .faq-list{max-width:700px;margin:0 auto}
+        .faq-item{border-bottom:1px solid var(--border)}
+        .faq-btn{width:100%;background:none;border:none;color:var(--white);padding:1.3rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Sora',sans-serif;font-size:.93rem;font-weight:600;text-align:left;transition:color .3s;gap:1rem}
+        .faq-btn:hover{color:var(--cyan)}
+        .faq-arrow{width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:var(--cyan);transition:transform .3s;flex-shrink:0;font-size:.65rem;background:var(--cyan-bg);border:1px solid var(--cyan-border);border-radius:50%}
+        .faq-item.active .faq-arrow{transform:rotate(180deg)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height .5s ease}
+        .faq-answer p{padding:0 0 1.3rem;color:var(--text-body);font-size:.88rem;line-height:1.7}
+        .faq-item.active .faq-answer{max-height:300px}
+
+        /* CONTACT */
+        .contact-section{background:var(--bg-soft)}
+        .contact-cta{background:var(--dark-card);border:1px solid var(--border-light);border-radius:24px;padding:4rem;text-align:center;max-width:800px;margin:0 auto;color:var(--white);position:relative;overflow:hidden}
+        .contact-cta::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;border:1px solid var(--cyan-border);border-radius:50%;pointer-events:none}
+        .contact-cta h2{font-size:1.9rem;font-weight:700;margin-bottom:.5rem;position:relative;letter-spacing:-.3px}
+        .contact-cta>p{color:var(--text-muted);margin-bottom:2rem;position:relative}
+        .contact-form{display:flex;flex-direction:column;gap:1rem;max-width:450px;margin:0 auto;position:relative}
+        .c-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .contact-form input,.contact-form textarea{width:100%;padding:.85rem 1rem;background:rgba(255,255,255,.04);border:1px solid var(--border-light);border-radius:8px;color:var(--white);font-family:'Sora',sans-serif;font-size:.86rem;transition:border-color .3s;outline:none}
+        .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-muted)}
+        .contact-form input:focus,.contact-form textarea:focus{border-color:var(--cyan)}
+        .contact-form textarea{resize:vertical;min-height:80px}
+        .c-submit{padding:.85rem;background:var(--cyan);color:var(--white);border:none;border-radius:8px;font-family:'Sora',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .3s;letter-spacing:.2px}
+        .c-submit:hover{background:var(--cyan-light);transform:translateY(-1px)}
+        .contact-meta{display:flex;justify-content:center;gap:2.5rem;margin-top:1.5rem;position:relative}
+        .contact-meta a{color:var(--text-muted);text-decoration:none;font-size:.85rem;transition:color .3s}
+        .contact-meta a:hover{color:var(--cyan)}
+
+        /* FOOTER */
+        footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+        footer p{color:var(--text-muted);font-size:.78rem}
+        .footer-links{display:flex;gap:1.5rem}
+        .footer-links a{color:var(--text-muted);text-decoration:none;font-size:.78rem;transition:color .3s}
+        .footer-links a:hover{color:var(--cyan)}
+
+        /* REVEALS */
+        .reveal{opacity:0;transform:translateY(28px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+
+        /* MODALS */
+        .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+        .modal.active{opacity:1;pointer-events:all}
+        .modal-box{background:var(--dark-mid);border:1px solid var(--border-light);border-radius:16px;padding:2.5rem;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;position:relative}
+        .modal-box h2{color:var(--white);margin-bottom:1.5rem;font-size:1.5rem}
+        .modal-box h3{font-size:1rem;margin-top:1.5rem;margin-bottom:.5rem;color:var(--cyan)}
+        .modal-box p{color:var(--text-body);font-size:.88rem;line-height:1.7}
+        .modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;line-height:1}
+        .modal-close:hover{color:var(--white)}
+
+        /* MOBILE */
+        .mobile-menu{display:none;position:fixed;inset:0;background:rgba(12,18,34,0.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem}
+        .mobile-menu.active{display:flex}
+        .mobile-menu a{color:var(--white);text-decoration:none;font-size:1.3rem;font-weight:600}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){.nav-center{display:none}.nav-cta{display:none}.hamburger{display:flex}nav{padding:1rem 1.5rem}nav.scrolled{padding:.7rem 1.5rem}}
+        @media(max-width:900px){section{padding:4rem 1.5rem}.hero{padding:7rem 1.5rem 3rem}.hero-container{grid-template-columns:1fr}.hero-visual{order:-1}.features-grid{grid-template-columns:1fr}.process-row{grid-template-columns:1fr 1fr}.process-row::before{display:none}.testimonials-grid{grid-template-columns:1fr}.c-row{grid-template-columns:1fr}.hero-badges{justify-content:center}.contact-cta{padding:2.5rem 1.5rem;border-radius:16px}.contact-meta{flex-direction:column;gap:.5rem;align-items:center}footer{flex-direction:column;gap:1rem;text-align:center}.lottie-strip{padding:2.5rem 1.5rem}.lottie-inner{flex-direction:column;text-align:center;gap:2rem}.lottie-metrics{justify-content:center}}
+        @media(max-width:480px){.hero-badges{flex-direction:column;gap:1rem}.lottie-metrics{flex-direction:column;gap:1rem;align-items:center}.process-row{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-    <header>
-        <div class="nav-inner">
-            <a href="#" class="logo">review<span>fix24</span></a>
-            <ul class="nav-links"><li><a href="#prozess">Prozess</a></li><li><a href="#vorteile">Vorteile</a></li><li><a href="#faq">FAQ</a></li></ul>
-            <a href="#kontakt" class="nav-cta">Kostenlose Analyse</a>
-            <button class="mobile-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
+
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="logo-text">Review<span>Fix</span>24</div>
+        </a>
+        <div class="nav-center">
+            <a href="#leistungen" data-i18n="nav.features">Leistungen</a>
+            <a href="#prozess" data-i18n="nav.process">Prozess</a>
+            <a href="#erfahrungen" data-i18n="nav.testimonials">Erfahrungen</a>
+            <a href="#faq">FAQ</a>
         </div>
-    </header>
+        <div class="nav-right">
+            <div class="lang-toggle"><button class="lang-btn active" id="langDE" onclick="setLang('de')">DE</button><button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button></div>
+            <a href="#kontakt" class="nav-cta" data-i18n="nav.cta">Jetzt fixen</a>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><em></em><em></em><em></em></button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#leistungen" onclick="closeMenu()" data-i18n="nav.features">Leistungen</a>
+        <a href="#prozess" onclick="closeMenu()" data-i18n="nav.process">Prozess</a>
+        <a href="#erfahrungen" onclick="closeMenu()" data-i18n="nav.testimonials">Erfahrungen</a>
+        <a href="#faq" onclick="closeMenu()">FAQ</a>
+        <a href="#kontakt" onclick="closeMenu()" data-i18n="nav.cta">Jetzt fixen</a>
+        <div class="lang-toggle" style="margin-top:.5rem"><button class="lang-btn active" id="mLangDE" onclick="setLang('de')">DE</button><button class="lang-btn" id="mLangEN" onclick="setLang('en')">EN</button></div>
+    </div>
+
     <section class="hero">
-        <div class="hero-inner">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-shape"></div>
+        <div class="hero-shape-2"></div>
+        <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-label fade-up">Erfolgsbasiertes Bewertungsmanagement</div>
-                <h1 class="hero-title fade-up delay-1">Wir <i>fixen</i> Ihre Bewertungen</h1>
-                <p class="hero-description fade-up delay-2">Unfaire Google-Bewertungen können echten Schaden anrichten. Wir helfen Unternehmen, diese professionell entfernen zu lassen – Sie zahlen nur bei Erfolg.</p>
-                <div class="hero-actions fade-up delay-3">
-                    <a href="#kontakt" class="btn btn-primary">Analyse anfordern<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
-                    <a href="#prozess" class="btn btn-ghost">So funktioniert's</a>
+                <div class="hero-eyebrow"><div class="eyebrow-line"></div><span data-i18n="hero.eyebrow">Bewertungen fixen</span></div>
+                <h1 data-i18n="hero.title">Falsche Bewertungen kosten Kunden. Wir fixen das.</h1>
+                <p class="hero-text" data-i18n="hero.text">ReviewFix24 entfernt ungerechtfertigte Google-Bewertungen – schnell, rechtssicher, transparent. Null Vorabkosten. Zahlung nur bei Erfolg.</p>
+                <div class="hero-ctas">
+                    <a href="#kontakt" class="btn-cyan" data-i18n="hero.cta">Gratis Bewertungs-Check →</a>
+                    <a href="#prozess" class="btn-link" data-i18n="hero.link">Wie es funktioniert →</a>
                 </div>
             </div>
-            <div class="hero-visual fade-up delay-2">
-                <dotlottie-player src="https://lottie.host/9c7f85b7-0d80-492a-9b60-5a7e58a7e3de/Q08v0gQGqe.json" background="transparent" speed="0.8" loop autoplay></dotlottie-player>
+            <div class="hero-visual">
+                <div class="hero-testimonial">
+                    <p class="ht-quote" data-i18n="hero.quote">Drei Fake-Bewertungen in nur 9 Tagen entfernt. Unser Google-Rating sprang von 3,6 auf 4,5 Sterne – die Terminanfragen haben sich verdreifacht.</p>
+                    <div class="ht-author">
+                        <div class="ht-avatar">PW</div>
+                        <div><div class="ht-name">Patrick Weber</div><div class="ht-role" data-i18n="hero.role">Inhaber, Physiotherapie Leipzig</div><div class="ht-stars">★★★★★</div></div>
+                    </div>
+                </div>
+                <div class="hero-badges">
+                    <div class="h-badge"><div class="h-badge-val">98%</div><div class="h-badge-label" data-i18n="hero.stat1">Erfolgsquote</div></div>
+                    <div class="h-badge"><div class="h-badge-val">2.400+</div><div class="h-badge-label" data-i18n="hero.stat2">Gefixt</div></div>
+                    <div class="h-badge"><div class="h-badge-val">14 T.</div><div class="h-badge-label" data-i18n="hero.stat3">Ø Dauer</div></div>
+                </div>
             </div>
         </div>
     </section>
-    <div class="metrics">
-        <div class="metrics-inner">
-            <div class="metric fade-up"><div class="metric-value">3.200+</div><div class="metric-label">Entfernte Bewertungen</div></div>
-            <div class="metric fade-up delay-1"><div class="metric-value">97%</div><div class="metric-label">Erfolgsquote</div></div>
-            <div class="metric fade-up delay-2"><div class="metric-value">650+</div><div class="metric-label">Betreute Unternehmen</div></div>
-            <div class="metric fade-up delay-3"><div class="metric-value">24-72h</div><div class="metric-label">Ø Bearbeitungszeit</div></div>
+
+    <div class="lottie-strip">
+        <div class="lottie-inner reveal">
+            <div class="lottie-anim">
+                <dotlottie-player src="https://lottie.host/ba7b647e-1223-4489-bada-0e7c77be4867/HKFJ37lNCj.lottie" background="transparent" speed="1" loop autoplay id="lottiePlayer"></dotlottie-player>
+                <div class="lottie-fallback" id="lottieFallback">
+                    <div class="star-animation"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                    <div class="review-cards-float"><div class="float-card fc1"><span class="fc-stars">★★★★★</span>Problem gelöst!</div><div class="float-card fc2"><span class="fc-stars">★★★★★</span>Schnell & sauber</div><div class="float-card fc3"><span class="fc-stars">★★★★★</span>Rating gefixt</div></div>
+                </div>
+            </div>
+            <div class="lottie-content">
+                <h3 data-i18n="lottie.title">Bewertungsprobleme? Erledigt.</h3>
+                <p data-i18n="lottie.text">Über 2.400 Bewertungen erfolgreich entfernt. Unsere Kunden gewinnen Vertrauen zurück – messbar und nachhaltig.</p>
+                <div class="lottie-metrics">
+                    <div><div class="lm-val">4.8 ★</div><div class="lm-label" data-i18n="lottie.s1">Ø Rating danach</div></div>
+                    <div><div class="lm-val">+47%</div><div class="lm-label" data-i18n="lottie.s2">Mehr Anfragen</div></div>
+                    <div><div class="lm-val">14 T.</div><div class="lm-label" data-i18n="lottie.s3">Ø Bearbeitungszeit</div></div>
+                </div>
+            </div>
         </div>
     </div>
-    <section class="process" id="prozess">
+
+    <section class="features-section" id="leistungen">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label fade-up">Der Ablauf</div>
-                <h2 class="section-title fade-up delay-1">Einfach und transparent</h2>
-                <p class="section-description fade-up delay-2">Drei Schritte, kein Risiko – so verbessern Sie Ihre Online-Reputation.</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-card fade-up"><div class="process-number">01</div><h3>Analyse anfordern</h3><p>Senden Sie uns Ihre Google-Profil-URL. Wir prüfen kostenlos, welche Bewertungen entfernbar sind.</p></div>
-                <div class="process-card fade-up delay-1"><div class="process-number">02</div><h3>Wir übernehmen</h3><p>Unser Team setzt rechtskonforme Verfahren ein, um die identifizierten Bewertungen zu melden.</p></div>
-                <div class="process-card fade-up delay-2"><div class="process-number">03</div><h3>Erfolg = Zahlung</h3><p>Sie zahlen erst, wenn die Bewertung nachweislich gelöscht wurde. Kein Erfolg, keine Kosten.</p></div>
-            </div>
-        </div>
-    </section>
-    <section class="features" id="vorteile">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label fade-up">Ihre Vorteile</div>
-                <h2 class="section-title fade-up delay-1">Warum Unternehmen uns vertrauen</h2>
+            <div class="section-header reveal">
+                <div class="section-eyebrow" data-i18n="feat.eye">Was wir bieten</div>
+                <h2 data-i18n="feat.title">Klare Lösung für unfaire Bewertungen</h2>
+                <p data-i18n="feat.desc">Transparent, effizient und ohne Risiko.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card fade-up"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div class="feature-content"><h3>Erfolgsbasierte Abrechnung</h3><p>Keine Vorauszahlung. Sie zahlen nur für gelöschte Bewertungen.</p></div></div>
-                <div class="feature-card fade-up delay-1"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div class="feature-content"><h3>Schnelle Bearbeitung</h3><p>Die meisten Bewertungen werden innerhalb von 24–72 Stunden entfernt.</p></div></div>
-                <div class="feature-card fade-up delay-2"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div><div class="feature-content"><h3>Absolute Diskretion</h3><p>Ihre Daten werden streng vertraulich behandelt.</p></div></div>
-                <div class="feature-card fade-up delay-3"><div class="feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div class="feature-content"><h3>Rechtssichere Methoden</h3><p>Wir arbeiten ausschließlich mit Google-konformen Verfahren.</p></div></div>
+                <div class="f-card reveal reveal-d1"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12l2.5 2.5L16 9"/></svg></div><h3 data-i18n="f1.t">Null Risiko</h3><p data-i18n="f1.p">Keine Vorabzahlung. Honorar erst bei erfolgreicher Löschung.</p></div>
+                <div class="f-card reveal reveal-d2"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-i18n="f2.t">100% Legal</h3><p data-i18n="f2.p">Nur rechtskonforme Methoden auf Basis aktueller Gesetzgebung.</p></div>
+                <div class="f-card reveal reveal-d3"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3 data-i18n="f3.t">Volle Transparenz</h3><p data-i18n="f3.p">Sie wissen jederzeit, wo Ihr Fall steht. Klare Updates.</p></div>
+                <div class="f-card reveal reveal-d1"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 data-i18n="f4.t">Schnelle Umsetzung</h3><p data-i18n="f4.p">Im Schnitt 14 Tage bis zur finalen Entfernung.</p></div>
+                <div class="f-card reveal reveal-d2"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3 data-i18n="f5.t">Direkter Draht</h3><p data-i18n="f5.p">Ihr persönlicher Ansprechpartner – erreichbar, wenn nötig.</p></div>
+                <div class="f-card reveal reveal-d3"><div class="f-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3 data-i18n="f6.t">Dauerhafter Effekt</h3><p data-i18n="f6.p">Entfernte Bewertungen bleiben weg. Ihr Rating bleibt stabil.</p></div>
             </div>
         </div>
     </section>
-    <section class="testimonials">
+
+    <section id="prozess">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label fade-up">Erfahrungen</div>
-                <h2 class="section-title fade-up delay-1">Was unsere Kunden berichten</h2>
+            <div class="section-header reveal">
+                <div class="section-eyebrow" data-i18n="proc.eye">So läuft es ab</div>
+                <h2 data-i18n="proc.title">In vier Schritten zum besseren Rating</h2>
+            </div>
+            <div class="process-row">
+                <div class="p-step reveal"><div class="p-num">01</div><h3 data-i18n="s1.t">Scan</h3><p data-i18n="s1.p">Kostenlose Prüfung aller Bewertungen auf Angriffspunkte.</p></div>
+                <div class="p-step reveal"><div class="p-num">02</div><h3 data-i18n="s2.t">Plan</h3><p data-i18n="s2.p">Individuelle Strategie für maximale Erfolgsaussicht.</p></div>
+                <div class="p-step reveal"><div class="p-num">03</div><h3 data-i18n="s3.t">Fix</h3><p data-i18n="s3.p">Professionelle Durchsetzung über rechtliche Kanäle.</p></div>
+                <div class="p-step reveal"><div class="p-num">04</div><h3 data-i18n="s4.t">Done</h3><p data-i18n="s4.p">Bewertung weg – Zahlung erst bei Erfolg.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="erfahrungen">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow" data-i18n="test.eye">Kundenstimmen</div>
+                <h2 data-i18n="test.title">Ergebnisse, die überzeugen</h2>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card fade-up"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Drei negative Bewertungen in 48 Stunden entfernt. Unser Rating stieg von 3,6 auf 4,3 Sterne."</p><div class="testimonial-author"><div class="author-avatar">AW</div><div><div class="author-name">Andreas W.</div><div class="author-role">Handwerksbetrieb, Frankfurt</div></div></div></div>
-                <div class="testimonial-card fade-up delay-1"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Professionelle Abwicklung, transparente Kommunikation. Absolut empfehlenswert."</p><div class="testimonial-author"><div class="author-avatar">JL</div><div><div class="author-name">Julia L.</div><div class="author-role">Praxis, Köln</div></div></div></div>
-                <div class="testimonial-card fade-up delay-2"><div class="testimonial-rating">★★★★★</div><p class="testimonial-text">„Endlich ein Anbieter, der hält was er verspricht. Kein Risiko für mich als Kunde."</p><div class="testimonial-author"><div class="author-avatar">PS</div><div><div class="author-name">Peter S.</div><div class="author-role">Gastronom, Stuttgart</div></div></div></div>
+                <div class="t-card reveal reveal-d1"><div class="t-stars">★★★★★</div><p class="t-quote" data-i18n="t1.q">„Zwei Fake-Bewertungen waren nach 8 Tagen weg. Unser Rating stieg direkt von 3,8 auf 4,4 – die Wirkung war sofort messbar."</p><div class="t-name">Lisa F.</div><div class="t-role" data-i18n="t1.r">Inhaberin, Friseursalon Hannover</div></div>
+                <div class="t-card reveal reveal-d2"><div class="t-stars">★★★★★</div><p class="t-quote" data-i18n="t2.q">„Unkompliziert, schnell und wirklich effektiv. ReviewFix24 hat geliefert, wo andere nur geredet haben."</p><div class="t-name">Jens H.</div><div class="t-role" data-i18n="t2.r">Geschäftsführer, Handwerksbetrieb Nürnberg</div></div>
+                <div class="t-card reveal reveal-d3"><div class="t-stars">★★★★★</div><p class="t-quote" data-i18n="t3.q">„Endlich jemand, der Bewertungen pragmatisch angeht. Klare Kommunikation, klares Ergebnis."</p><div class="t-name">Claudia S.</div><div class="t-role" data-i18n="t3.r">Inhaberin, Restaurant Dresden</div></div>
             </div>
         </div>
     </section>
-    <section class="faq" id="faq">
+
+    <section id="faq">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label fade-up">Häufige Fragen</div>
-                <h2 class="section-title fade-up delay-1">Gut zu wissen</h2>
-            </div>
+            <div class="section-header reveal"><div class="section-eyebrow" data-i18n="faq.eye">FAQ</div><h2 data-i18n="faq.title">Die wichtigsten Fragen auf einen Blick</h2></div>
             <div class="faq-list">
-                <div class="faq-item fade-up"><button class="faq-question"><span>Wie funktioniert die erfolgsbasierte Abrechnung?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Sie zahlen erst, wenn die Bewertung gelöscht wurde. Die Analyse ist kostenlos und unverbindlich.</p></div></div>
-                <div class="faq-item fade-up delay-1"><button class="faq-question"><span>Welche Bewertungen können entfernt werden?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Bewertungen, die gegen Googles Richtlinien verstoßen – Falschaussagen, Beleidigungen, Spam oder Bewertungen von Nicht-Kunden.</p></div></div>
-                <div class="faq-item fade-up delay-2"><button class="faq-question"><span>Wie lange dauert die Entfernung?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Meist 24–72 Stunden. Bei komplexeren Fällen bis zu zwei Wochen.</p></div></div>
-                <div class="faq-item fade-up delay-3"><button class="faq-question"><span>Ist das Verfahren legal?</span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></button><div class="faq-answer"><p>Ja. Wir nutzen ausschließlich die offiziellen Meldewege von Google.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-btn"><span data-i18n="q1.q">Ist das Entfernen von Google-Bewertungen legal?</span><span class="faq-arrow">▼</span></button><div class="faq-answer"><p data-i18n="q1.a">Ja. Wir arbeiten ausschließlich mit legalen Methoden. Bewertungen, die gegen Recht oder Google-Richtlinien verstoßen, können rechtmäßig entfernt werden.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-btn"><span data-i18n="q2.q">Was kostet mich das?</span><span class="faq-arrow">▼</span></button><div class="faq-answer"><p data-i18n="q2.a">Null Vorabkosten. Sie zahlen nur bei Erfolg – wird die Bewertung nicht entfernt, zahlen Sie nichts.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-btn"><span data-i18n="q3.q">Wie schnell geht das?</span><span class="faq-arrow">▼</span></button><div class="faq-answer"><p data-i18n="q3.a">Im Schnitt 7 bis 21 Tage – je nach Komplexität des Falls.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-btn"><span data-i18n="q4.q">Welche Bewertungen lassen sich entfernen?</span><span class="faq-arrow">▼</span></button><div class="faq-answer"><p data-i18n="q4.a">Fake-Bewertungen, unwahre Behauptungen, Bewertungen von Nicht-Kunden und Richtlinienverstöße.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-btn"><span data-i18n="q5.q">Bekommt der Bewertende das mit?</span><span class="faq-arrow">▼</span></button><div class="faq-answer"><p data-i18n="q5.a">Nein. Der gesamte Prozess läuft diskret – ohne jeglichen Kontakt zum Verfasser.</p></div></div>
             </div>
         </div>
     </section>
-    <section class="contact" id="kontakt">
+
+    <section class="contact-section" id="kontakt">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label fade-up">Kontakt</div>
-                <h2 class="section-title fade-up delay-1">Kostenlose Analyse anfordern</h2>
-                <p class="section-description fade-up delay-2">Wir melden uns innerhalb von 24 Stunden mit einer Einschätzung.</p>
-            </div>
-            <div class="contact-container">
-                <form class="contact-form fade-up delay-3" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <div class="form-row"><div class="form-group"><label>Unternehmen *</label><input type="text" name="company" required placeholder="Firmenname"></div><div class="form-group"><label>Ansprechpartner *</label><input type="text" name="name" required placeholder="Ihr Name"></div></div>
-                    <div class="form-row"><div class="form-group"><label>E-Mail *</label><input type="email" name="email" required placeholder="ihre@email.de"></div><div class="form-group"><label>Telefon</label><input type="tel" name="phone" placeholder="+49 123 456789"></div></div>
-                    <div class="form-group"><label>Google Maps URL</label><input type="url" name="url" placeholder="Link zu Ihrem Google-Profil"></div>
-                    <div class="form-group"><label>Nachricht</label><textarea name="message" placeholder="Kurze Beschreibung..."></textarea></div>
-                    <button type="submit" class="form-submit">Analyse anfordern</button>
+            <div class="contact-cta reveal">
+                <h2 data-i18n="cta.title">Rating kaputt? Wir fixen das.</h2>
+                <p data-i18n="cta.desc">Kostenloser Bewertungs-Check – Antwort in unter 24h.</p>
+                <form class="contact-form" onsubmit="event.preventDefault();alert(currentLang==='de'?'Vielen Dank! Wir melden uns schnellstmöglich.':'Thank you! We\'ll get back to you ASAP.');">
+                    <div class="c-row"><input type="text" data-i18n-ph="ph.name" placeholder="Ihr Name" required><input type="text" data-i18n-ph="ph.company" placeholder="Unternehmen"></div>
+                    <input type="email" data-i18n-ph="ph.email" placeholder="E-Mail-Adresse" required>
+                    <textarea data-i18n-ph="ph.msg" placeholder="Was ist passiert? Kurz beschreiben..."></textarea>
+                    <button type="submit" class="c-submit" data-i18n="cta.submit">Gratis Check starten →</button>
                 </form>
+                <div class="contact-meta"><a href="tel:+971585373009">+971 585 373 009</a><a href="mailto:info@reviewfix24.de">info@reviewfix24.de</a></div>
             </div>
         </div>
     </section>
+
     <footer>
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand"><a href="#" class="logo">review<span>fix24</span></a><p>Professionelles Bewertungsmanagement für Unternehmen. Diskret, erfolgreich, risikofrei.</p></div>
-                <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#prozess">Prozess</a></li><li><a href="#vorteile">Vorteile</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
-                <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="#" onclick="openModal('impressum')">Impressum</a></li><li><a href="#" onclick="openModal('datenschutz')">Datenschutz</a></li></ul></div>
-                <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="tel:+971585373009">+971 585 373 009</a></li><li><a href="/cdn-cgi/l/email-protection#fa93949c95ba889f8c939f8d9c9382c8ced49e9f"><span class="__cf_email__" data-cfemail="e881868e87a89a8d9e818d9f8e8190dadcc68c8d">[email&#160;protected]</span></a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>© 2026 ReviewFix24. Alle Rechte vorbehalten.</p><div class="footer-legal"><a href="#" onclick="openModal('impressum')">Impressum</a><a href="#" onclick="openModal('datenschutz')">Datenschutz</a></div></div>
-        </div>
+        <p>© 2026 ReviewFix24. <span data-i18n="ft.rights">Alle Rechte vorbehalten.</span></p>
+        <div class="footer-links"><a href="#" onclick="event.preventDefault();openModal('impressum')">Impressum</a><a href="#" onclick="event.preventDefault();openModal('datenschutz')" data-i18n="ft.privacy">Datenschutz</a></div>
     </footer>
-    <div class="modal" id="impressum"><div class="modal-content"><button class="modal-close" onclick="closeModal('impressum')"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button><h2>Impressum</h2><h3>Angaben gemäß § 5 TMG</h3><p>B2B Media L.L.C-FZ<br>Meydan Grandstand, 6th floor<br>Meydan Road, Nad Al Sheba<br>Dubai, UAE</p><h3>Kontakt</h3><p>Telefon: +971 – 585 373 009<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfd6d1d9d0ffcddac9d6dac8d9d6c78d8b91dbda">[email&#160;protected]</a></p></div></div>
-    <div class="modal" id="datenschutz"><div class="modal-content"><button class="modal-close" onclick="closeModal('datenschutz')"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button><h2>Datenschutz</h2><h3>1. Datenschutz</h3><p>Wir behandeln Ihre Daten vertraulich entsprechend gesetzlicher Vorschriften.</p><h3>2. Kontakt</h3><p>Bei Fragen: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9af3f4fcf5dae8ffecf3ffedfcf3e2a8aeb4feff">[email&#160;protected]</a></p></div></div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        const mobileToggle=document.querySelector('.mobile-toggle'),navLinks=document.querySelector('.nav-links');mobileToggle.addEventListener('click',()=>{mobileToggle.classList.toggle('active');navLinks.classList.toggle('active')});document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{mobileToggle.classList.remove('active');navLinks.classList.remove('active')}));
-        const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-up').forEach(e=>{observer.observe(e);const r=e.getBoundingClientRect();r.top<window.innerHeight&&r.bottom>0&&e.classList.add('visible')});
-        document.querySelectorAll('.faq-item').forEach(i=>{i.querySelector('.faq-question').addEventListener('click',()=>{const o=i.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));o||i.classList.add('active')})});
-        function openModal(i){event.preventDefault();document.getElementById(i).classList.add('active');document.body.style.overflow='hidden'}function closeModal(i){document.getElementById(i).classList.remove('active');document.body.style.overflow=''}document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{e.target===m&&(m.classList.remove('active'),docum
+
+    <div class="modal" id="impressum"><div class="modal-box"><button class="modal-close" onclick="closeModal('impressum')">×</button><h2>Impressum</h2><h3 data-i18n="imp.h1">Angaben gemäß § 5 TMG</h3><p>B2B Media L.L.C-FZ<br>Meydan Grandstand, 6th Floor<br>Meydan Road, Nad Al Sheba<br>Dubai, UAE</p><h3 data-i18n="imp.h2">Kontakt</h3><p>Tel: +971 – 585 373 009<br>E-Mail: info@reviewfix24.de</p></div></div>
+    <div class="modal" id="datenschutz"><div class="modal-box"><button class="modal-close" onclick="closeModal('datenschutz')">×</button><h2 data-i18n="priv.title">Datenschutzerklärung</h2><h3 data-i18n="priv.h1">1. Verantwortlicher</h3><p>B2B Media L.L.C-FZ, Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE</p><h3 data-i18n="priv.h2">2. Datenverarbeitung</h3><p data-i18n="priv.p2">Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.</p><h3 data-i18n="priv.h3">3. Ihre Rechte</h3><p data-i18n="priv.p3">Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@reviewfix24.de.</p></div></div>
+
+    <script>
+    const T={de:{'nav.features':'Leistungen','nav.process':'Prozess','nav.testimonials':'Erfahrungen','nav.cta':'Jetzt fixen','hero.eyebrow':'Bewertungen fixen','hero.title':'Falsche Bewertungen kosten Kunden. Wir fixen das.','hero.text':'ReviewFix24 entfernt ungerechtfertigte Google-Bewertungen – schnell, rechtssicher, transparent. Null Vorabkosten. Zahlung nur bei Erfolg.','hero.cta':'Gratis Bewertungs-Check →','hero.link':'Wie es funktioniert →','hero.quote':'Drei Fake-Bewertungen in nur 9 Tagen entfernt. Unser Google-Rating sprang von 3,6 auf 4,5 Sterne – die Terminanfragen haben sich verdreifacht.','hero.role':'Inhaber, Physiotherapie Leipzig','hero.stat1':'Erfolgsquote','hero.stat2':'Gefixt','hero.stat3':'Ø Dauer','lottie.title':'Bewertungsprobleme? Erledigt.','lottie.text':'Über 2.400 Bewertungen erfolgreich entfernt. Unsere Kunden gewinnen Vertrauen zurück – messbar und nachhaltig.','lottie.s1':'Ø Rating danach','lottie.s2':'Mehr Anfragen','lottie.s3':'Ø Bearbeitungszeit','feat.eye':'Was wir bieten','feat.title':'Klare Lösung für unfaire Bewertungen','feat.desc':'Transparent, effizient und ohne Risiko.','f1.t':'Null Risiko','f1.p':'Keine Vorabzahlung. Honorar erst bei erfolgreicher Löschung.','f2.t':'100% Legal','f2.p':'Nur rechtskonforme Methoden auf Basis aktueller Gesetzgebung.','f3.t':'Volle Transparenz','f3.p':'Sie wissen jederzeit, wo Ihr Fall steht. Klare Updates.','f4.t':'Schnelle Umsetzung','f4.p':'Im Schnitt 14 Tage bis zur finalen Entfernung.','f5.t':'Direkter Draht','f5.p':'Ihr persönlicher Ansprechpartner – erreichbar, wenn nötig.','f6.t':'Dauerhafter Effekt','f6.p':'Entfernte Bewertungen bleiben weg. Ihr Rating bleibt stabil.','proc.eye':'So läuft es ab','proc.title':'In vier Schritten zum besseren Rating','s1.t':'Scan','s1.p':'Kostenlose Prüfung aller Bewertungen auf Angriffspunkte.','s2.t':'Plan','s2.p':'Individuelle Strategie für maximale Erfolgsaussicht.','s3.t':'Fix','s3.p':'Professionelle Durchsetzung über rechtliche Kanäle.','s4.t':'Done','s4.p':'Bewertung weg – Zahlung erst bei Erfolg.','test.eye':'Kundenstimmen','test.title':'Ergebnisse, die überzeugen','t1.q':'„Zwei Fake-Bewertungen waren nach 8 Tagen weg. Unser Rating stieg direkt von 3,8 auf 4,4 – die Wirkung war sofort messbar."','t1.r':'Inhaberin, Friseursalon Hannover','t2.q':'„Unkompliziert, schnell und wirklich effektiv. ReviewFix24 hat geliefert, wo andere nur geredet haben."','t2.r':'Geschäftsführer, Handwerksbetrieb Nürnberg','t3.q':'„Endlich jemand, der Bewertungen pragmatisch angeht. Klare Kommunikation, klares Ergebnis."','t3.r':'Inhaberin, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Die wichtigsten Fragen auf einen Blick','q1.q':'Ist das Entfernen von Google-Bewertungen legal?','q1.a':'Ja. Wir arbeiten ausschließlich mit legalen Methoden. Bewertungen, die gegen Recht oder Google-Richtlinien verstoßen, können rechtmäßig entfernt werden.','q2.q':'Was kostet mich das?','q2.a':'Null Vorabkosten. Sie zahlen nur bei Erfolg – wird die Bewertung nicht entfernt, zahlen Sie nichts.','q3.q':'Wie schnell geht das?','q3.a':'Im Schnitt 7 bis 21 Tage – je nach Komplexität des Falls.','q4.q':'Welche Bewertungen lassen sich entfernen?','q4.a':'Fake-Bewertungen, unwahre Behauptungen, Bewertungen von Nicht-Kunden und Richtlinienverstöße.','q5.q':'Bekommt der Bewertende das mit?','q5.a':'Nein. Der gesamte Prozess läuft diskret – ohne jeglichen Kontakt zum Verfasser.','cta.title':'Rating kaputt? Wir fixen das.','cta.desc':'Kostenloser Bewertungs-Check – Antwort in unter 24h.','cta.submit':'Gratis Check starten →','ft.rights':'Alle Rechte vorbehalten.','ft.privacy':'Datenschutz','imp.h1':'Angaben gemäß § 5 TMG','imp.h2':'Kontakt','priv.title':'Datenschutzerklärung','priv.h1':'1. Verantwortlicher','priv.h2':'2. Datenverarbeitung','priv.p2':'Personenbezogene Daten werden nur im gesetzlichen Rahmen verarbeitet. Kontaktformular-Daten dienen ausschließlich der Anfragenbearbeitung und werden nicht an Dritte weitergegeben.','priv.h3':'3. Ihre Rechte','priv.p3':'Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung. Kontakt: info@reviewfix24.de.','ph.name':'Ihr Name','ph.company':'Unternehmen','ph.email':'E-Mail-Adresse','ph.msg':'Was ist passiert? Kurz beschreiben...'},
+    en:{'nav.features':'Services','nav.process':'Process','nav.testimonials':'Reviews','nav.cta':'Fix Now','hero.eyebrow':'Fix Your Reviews','hero.title':'Fake reviews cost customers. We fix that.','hero.text':'ReviewFix24 removes unjustified Google reviews – fast, legal, transparent. Zero upfront costs. Payment only on success.','hero.cta':'Free Review Check →','hero.link':'How it works →','hero.quote':'Three fake reviews removed in just 9 days. Our Google rating jumped from 3.6 to 4.5 stars – appointment requests tripled.','hero.role':'Owner, Physiotherapy Leipzig','hero.stat1':'Success Rate','hero.stat2':'Fixed','hero.stat3':'Ø Duration','lottie.title':'Review problems? Sorted.','lottie.text':'Over 2,400 reviews successfully removed. Our clients regain trust – measurably and sustainably.','lottie.s1':'Ø Rating after','lottie.s2':'More inquiries','lottie.s3':'Ø Processing time','feat.eye':'What We Offer','feat.title':'A clear solution for unfair reviews','feat.desc':'Transparent, efficient and risk-free.','f1.t':'Zero Risk','f1.p':'No upfront payment. Fee only upon successful removal.','f2.t':'100% Legal','f2.p':'Exclusively law-compliant methods based on current legislation.','f3.t':'Full Transparency','f3.p':'You always know where your case stands. Clear updates.','f4.t':'Fast Execution','f4.p':'On average 14 days until final removal.','f5.t':'Direct Line','f5.p':'Your personal contact – available when you need them.','f6.t':'Lasting Effect','f6.p':'Removed reviews stay gone. Your rating stays stable.','proc.eye':'How It Works','proc.title':'Four steps to a better rating','s1.t':'Scan','s1.p':'Free examination of all reviews for vulnerabilities.','s2.t':'Plan','s2.p':'Individual strategy for maximum success.','s3.t':'Fix','s3.p':'Professional enforcement through legal channels.','s4.t':'Done','s4.p':'Review gone – payment only on success.','test.eye':'Client Reviews','test.title':'Results that convince','t1.q':'"Two fake reviews were gone after 8 days. Our rating rose from 3.8 to 4.4 – the impact was immediately measurable."','t1.r':'Owner, Hair Salon Hannover','t2.q':'"Uncomplicated, fast and truly effective. ReviewFix24 delivered where others only talked."','t2.r':'CEO, Trades Business Nuremberg','t3.q':'"Finally someone who handles reviews pragmatically. Clear communication, clear results."','t3.r':'Owner, Restaurant Dresden','faq.eye':'FAQ','faq.title':'Key questions at a glance','q1.q':'Is removing Google reviews legal?','q1.a':'Yes. We work exclusively with legal methods. Reviews violating law or Google guidelines can be legitimately removed.','q2.q':'What does it cost?','q2.a':'Zero upfront costs. You only pay on success – if the review isn\'t removed, you pay nothing.','q3.q':'How fast is it?','q3.a':'On average 7 to 21 days – depending on case complexity.','q4.q':'Which reviews can be removed?','q4.a':'Fake reviews, false claims, reviews from non-customers and guideline violations.','q5.q':'Does the reviewer find out?','q5.a':'No. The entire process runs discreetly – without any contact to the author.','cta.title':'Rating broken? We fix that.','cta.desc':'Free review check – response within 24h.','cta.submit':'Start Free Check →','ft.rights':'All rights reserved.','ft.privacy':'Privacy Policy','imp.h1':'Information according to § 5 TMG','imp.h2':'Contact','priv.title':'Privacy Policy','priv.h1':'1. Responsible Party','priv.h2':'2. Data Processing','priv.p2':'Personal data is processed only within the legal framework. Contact form data is used exclusively for inquiry processing and is not shared with third parties.','priv.h3':'3. Your Rights','priv.p3':'Information, correction, deletion and restriction of processing. Contact: info@reviewfix24.de.','ph.name':'Your Name','ph.company':'Company','ph.email':'Email Address','ph.msg':'What happened? Briefly describe...'}};
+
+    let currentLang='de';
+    function setLang(l){currentLang=l;document.documentElement.lang=l;['langDE','mLangDE'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='de'));['langEN','mLangEN'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='en'));document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[l][k])el.innerHTML=T[l][k]});document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(T[l][k])el.placeholder=T[l][k]})}
+
+    const nb=document.getElementById('navbar');window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>50));
+    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':''}
+    function closeMenu(){document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow=''}
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.reveal').forEach(el=>{obs.observe(el);if(el.getBoundingClientRect().top<window.innerHeight&&el.getBoundingClientRect().bottom>0)el.classList.add('visible')});
+    document.querySelectorAll('.faq-item').forEach(i=>{i.querySelector('.faq-btn').addEventListener('click',()=>{const a=i.classList.contains('active');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('active'));if(!a)i.classList.add('active')})});
+    function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
+    function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow=''}
+    document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('active');document.body.style.overflow=''}}));
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const h=this.getAttribute('href');if(h!=='#'){e.preventDefault();closeMenu();setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),100)}}));
+    setTimeout(()=>{const p=document.getElementById('lottiePlayer');const f=document.getElementById('lottieFallback');if(!p||!p.shadowRoot||!p.shadowRoot.querySelector('canvas,svg')){if(p)p.style.display='none';f.style.display='flex'}},4000);
+    </script>
+</body>
+</html>
